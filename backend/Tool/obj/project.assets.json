@@ -514,11 +514,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tuan anh\\Documents\\testagl\\backend\\Tool\\Tool.csproj",
+      "projectUniqueName": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\Tool\\Tool.csproj",
       "projectName": "Tool",
-      "projectPath": "C:\\Users\\tuan anh\\Documents\\testagl\\backend\\Tool\\Tool.csproj",
+      "projectPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\Tool\\Tool.csproj",
       "packagesPath": "C:\\Users\\tuan anh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tuan anh\\Documents\\testagl\\backend\\Tool\\obj\\",
+      "outputPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\Tool\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\tuan anh\\AppData\\Roaming\\NuGet\\NuGet.Config"

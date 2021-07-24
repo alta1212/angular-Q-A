@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tuan anh\\Documents\\testagl\\backend\\MODELS\\MODELS.csproj": {}
+    "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\MODELS\\MODELS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tuan anh\\Documents\\testagl\\backend\\MODELS\\MODELS.csproj": {
+    "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\MODELS\\MODELS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tuan anh\\Documents\\testagl\\backend\\MODELS\\MODELS.csproj",
+        "projectUniqueName": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\MODELS\\MODELS.csproj",
         "projectName": "MODELS",
-        "projectPath": "C:\\Users\\tuan anh\\Documents\\testagl\\backend\\MODELS\\MODELS.csproj",
+        "projectPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\MODELS\\MODELS.csproj",
         "packagesPath": "C:\\Users\\tuan anh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tuan anh\\Documents\\testagl\\backend\\MODELS\\obj\\",
+        "outputPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\MODELS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tuan anh\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kZvRUSae3dCFXd8ncKumeiofloUb+tLJGNKI8q8Hu67RQPo1O2ELrR7CUiOd41OUmCwS6DT/1zgkk29TPT92Lg==",
+  "dgSpecHash": "wRSUVxOuwegzXE8jhxMUvraxDiVQyLJqOvWQPAv5dHTlBr6EUr+rZQe6G5U6PgJbo3rDaFVbvWBqgzGzyjCmkg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tuan anh\\Documents\\testagl\\backend\\Tool\\Tool.csproj",
+  "projectFilePath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\Tool\\Tool.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tuan anh\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.6\\microsoft.aspnetcore.authentication.jwtbearer.5.0.6.nupkg.sha512",
     "C:\\Users\\tuan anh\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.5\\microsoft.aspnetcore.jsonpatch.5.0.5.nupkg.sha512",

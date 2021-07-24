@@ -6,6 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ModalComponent } from './modal/modal.component';
 import { RouterModule } from '@angular/router';
 import { AccountBarComponent } from './account-bar/account-bar.component';
+import { FormGroup,ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { AccountBarComponent } from './account-bar/account-bar.component';
   imports: [
     CommonModule,
     RouterModule.forChild([]),
-  
+    ReactiveFormsModule
   ],
   exports:[
     MainLayoutComponent

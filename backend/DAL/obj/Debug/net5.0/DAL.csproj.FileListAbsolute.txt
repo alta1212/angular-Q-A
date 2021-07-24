@@ -13,3 +13,18 @@ C:\Users\tuan anh\Documents\testagl\backend\dal\obj\Debug\net5.0\DAL.csproj.Copy
 C:\Users\tuan anh\Documents\testagl\backend\dal\obj\Debug\net5.0\DAL.dll
 C:\Users\tuan anh\Documents\testagl\backend\dal\obj\Debug\net5.0\ref\DAL.dll
 C:\Users\tuan anh\Documents\testagl\backend\dal\obj\Debug\net5.0\DAL.pdb
+C:\Users\tuan anh\Documents\angular Q&A\backend\DAL\bin\Debug\net5.0\DAL.deps.json
+C:\Users\tuan anh\Documents\angular Q&A\backend\DAL\bin\Debug\net5.0\DAL.dll
+C:\Users\tuan anh\Documents\angular Q&A\backend\DAL\bin\Debug\net5.0\ref\DAL.dll
+C:\Users\tuan anh\Documents\angular Q&A\backend\DAL\bin\Debug\net5.0\DAL.pdb
+C:\Users\tuan anh\Documents\angular Q&A\backend\DAL\bin\Debug\net5.0\MODELS.dll
+C:\Users\tuan anh\Documents\angular Q&A\backend\DAL\bin\Debug\net5.0\MODELS.pdb
+C:\Users\tuan anh\Documents\angular Q&A\backend\DAL\obj\Debug\net5.0\DAL.csproj.AssemblyReference.cache
+C:\Users\tuan anh\Documents\angular Q&A\backend\DAL\obj\Debug\net5.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tuan anh\Documents\angular Q&A\backend\DAL\obj\Debug\net5.0\DAL.AssemblyInfoInputs.cache
+C:\Users\tuan anh\Documents\angular Q&A\backend\DAL\obj\Debug\net5.0\DAL.AssemblyInfo.cs
+C:\Users\tuan anh\Documents\angular Q&A\backend\DAL\obj\Debug\net5.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\tuan anh\Documents\angular Q&A\backend\DAL\obj\Debug\net5.0\DAL.csproj.CopyComplete
+C:\Users\tuan anh\Documents\angular Q&A\backend\DAL\obj\Debug\net5.0\DAL.dll
+C:\Users\tuan anh\Documents\angular Q&A\backend\DAL\obj\Debug\net5.0\ref\DAL.dll
+C:\Users\tuan anh\Documents\angular Q&A\backend\DAL\obj\Debug\net5.0\DAL.pdb

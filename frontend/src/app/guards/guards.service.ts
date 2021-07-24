@@ -13,9 +13,10 @@ export class GuardsService implements CanActivate {
     //token
       if(!this.cookieService.get('user'))
       {
-         window.location.href = '/signin';
+         window.location.href = '/signin'; 
+         return false;
       }
-      return false;
+     
 
       var token=JSON.parse(this.cookieService.get('user')).token;
       if(token && !this.jwtSevice.isTokenExpired(token))

@@ -77,7 +77,7 @@ namespace backend.Controllers
                 {
 
                   User_.token=tool.token(config);
-               
+                  User_.USER_PASSWORD=null;
                   return User_;
                 }
                 return null;
@@ -94,6 +94,7 @@ namespace backend.Controllers
         {
           if(iuserBUS.login(user).Tfa=="0")//kiếm tra nếu người dùng bật 2fa
           {
+               User_.USER_PASSWORD=null;
                user.token=tool.token(config);
                return user; 
           }

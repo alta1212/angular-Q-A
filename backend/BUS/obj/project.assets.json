@@ -628,11 +628,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tuan anh\\Documents\\testagl\\backend\\BUS\\BUS.csproj",
+      "projectUniqueName": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\BUS\\BUS.csproj",
       "projectName": "BUS",
-      "projectPath": "C:\\Users\\tuan anh\\Documents\\testagl\\backend\\BUS\\BUS.csproj",
+      "projectPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\BUS\\BUS.csproj",
       "packagesPath": "C:\\Users\\tuan anh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tuan anh\\Documents\\testagl\\backend\\BUS\\obj\\",
+      "outputPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\BUS\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\tuan anh\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -647,11 +647,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\tuan anh\\Documents\\testagl\\backend\\DAL\\DAL.csproj": {
-              "projectPath": "C:\\Users\\tuan anh\\Documents\\testagl\\backend\\DAL\\DAL.csproj"
+            "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\DAL\\DAL.csproj": {
+              "projectPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\DAL\\DAL.csproj"
             },
-            "C:\\Users\\tuan anh\\Documents\\testagl\\backend\\MODELS\\MODELS.csproj": {
-              "projectPath": "C:\\Users\\tuan anh\\Documents\\testagl\\backend\\MODELS\\MODELS.csproj"
+            "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\MODELS\\MODELS.csproj": {
+              "projectPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\MODELS\\MODELS.csproj"
             }
           }
         }
