@@ -1,0 +1,12 @@
+C:\Users\tuan anh\Documents\testagl\backend\MODELS\bin\Debug\net5.0\MODELS.deps.json
+C:\Users\tuan anh\Documents\testagl\backend\MODELS\bin\Debug\net5.0\MODELS.dll
+C:\Users\tuan anh\Documents\testagl\backend\MODELS\bin\Debug\net5.0\ref\MODELS.dll
+C:\Users\tuan anh\Documents\testagl\backend\MODELS\bin\Debug\net5.0\MODELS.pdb
+C:\Users\tuan anh\Documents\testagl\backend\MODELS\obj\Debug\net5.0\MODELS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tuan anh\Documents\testagl\backend\MODELS\obj\Debug\net5.0\MODELS.AssemblyInfoInputs.cache
+C:\Users\tuan anh\Documents\testagl\backend\MODELS\obj\Debug\net5.0\MODELS.AssemblyInfo.cs
+C:\Users\tuan anh\Documents\testagl\backend\MODELS\obj\Debug\net5.0\MODELS.csproj.CoreCompileInputs.cache
+C:\Users\tuan anh\Documents\testagl\backend\MODELS\obj\Debug\net5.0\MODELS.dll
+C:\Users\tuan anh\Documents\testagl\backend\MODELS\obj\Debug\net5.0\ref\MODELS.dll
+C:\Users\tuan anh\Documents\testagl\backend\MODELS\obj\Debug\net5.0\MODELS.pdb
+C:\Users\tuan anh\Documents\testagl\backend\MODELS\obj\Debug\net5.0\MODELS.csproj.AssemblyReference.cache

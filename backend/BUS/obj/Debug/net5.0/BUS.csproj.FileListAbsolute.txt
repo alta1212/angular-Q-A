@@ -1,0 +1,17 @@
+C:\Users\tuan anh\Documents\testagl\backend\BUS\bin\Debug\net5.0\BUS.deps.json
+C:\Users\tuan anh\Documents\testagl\backend\BUS\bin\Debug\net5.0\BUS.dll
+C:\Users\tuan anh\Documents\testagl\backend\BUS\bin\Debug\net5.0\ref\BUS.dll
+C:\Users\tuan anh\Documents\testagl\backend\BUS\bin\Debug\net5.0\BUS.pdb
+C:\Users\tuan anh\Documents\testagl\backend\BUS\obj\Debug\net5.0\BUS.csproj.AssemblyReference.cache
+C:\Users\tuan anh\Documents\testagl\backend\BUS\obj\Debug\net5.0\BUS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tuan anh\Documents\testagl\backend\BUS\obj\Debug\net5.0\BUS.AssemblyInfoInputs.cache
+C:\Users\tuan anh\Documents\testagl\backend\BUS\obj\Debug\net5.0\BUS.AssemblyInfo.cs
+C:\Users\tuan anh\Documents\testagl\backend\BUS\obj\Debug\net5.0\BUS.csproj.CoreCompileInputs.cache
+C:\Users\tuan anh\Documents\testagl\backend\BUS\obj\Debug\net5.0\BUS.dll
+C:\Users\tuan anh\Documents\testagl\backend\BUS\obj\Debug\net5.0\ref\BUS.dll
+C:\Users\tuan anh\Documents\testagl\backend\BUS\obj\Debug\net5.0\BUS.pdb
+C:\Users\tuan anh\Documents\testagl\backend\BUS\bin\Debug\net5.0\DAL.dll
+C:\Users\tuan anh\Documents\testagl\backend\BUS\bin\Debug\net5.0\MODELS.dll
+C:\Users\tuan anh\Documents\testagl\backend\BUS\bin\Debug\net5.0\MODELS.pdb
+C:\Users\tuan anh\Documents\testagl\backend\BUS\bin\Debug\net5.0\DAL.pdb
+C:\Users\tuan anh\Documents\testagl\backend\BUS\obj\Debug\net5.0\BUS.csproj.CopyComplete
