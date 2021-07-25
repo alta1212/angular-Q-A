@@ -23,12 +23,14 @@ import { AskQuestionComponent } from './ask-question/ask-question.component';
 import { AskQuestionModule } from './ask-question/ask-question.module';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ForgotPasswordModule } from './forgot-password/forgot-password.module';
-import { UserService } from './share/user.service';
+import { UserService } from './share/user/user.service';
 import { ReactiveFormsModule,FormGroup, FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { QuestionsDetailComponent } from './questions-detail/questions-detail.component';
 import { QuestionsDetailModule } from './questions-detail/questions-detail.module';
 import {NgSelectizeModule} from 'ng-selectize';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { NgSelectModule } from '@ng-select/ng-select';
 export function returnToken()
 {
     return JSON.parse(this.cookieService.get('user')).token;
@@ -63,6 +65,7 @@ export function returnToken()
     HttpClientModule,
     FormsModule,
     QuestionsDetailModule,
+    NgSelectModule,
     ReactiveFormsModule,
     JwtModule.forRoot({
       config:{
@@ -74,7 +77,7 @@ export function returnToken()
       },
       
     }),
-   
+    CKEditorModule
   ],
   providers: [
     UserService,

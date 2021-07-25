@@ -63,6 +63,8 @@ namespace backend
             IServiceCollection serviceCollections = services.AddTransient<DAL.Helper.IDatabaseHelper,DAL.Helper.DatabaseHelper>();
             services.AddTransient< DAL.Interface.iUserDAl , DAL.userDAl>();
             services.AddTransient<BUS.Interface.IuserBUS, BUS.UserBUS>();
+             services.AddTransient< DAL.Interface.iCategoryDAL , DAL.categoryDAL>();
+            services.AddTransient<BUS.Interface.iCategoryBUS, BUS.CategoryBUS>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

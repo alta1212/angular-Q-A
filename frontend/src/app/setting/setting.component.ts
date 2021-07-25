@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Title} from "@angular/platform-browser";
-import { UserService } from 'src/app/share/user.service';
+import { UserService } from 'src/app/share/user/user.service';
 declare var cuteAlert: any;
 @Component({
   selector: 'app-setting',

@@ -58,7 +58,7 @@ export class UserService {
   {
     var body=
     {
-      "USER_EMAIL":JSON.parse(this.cookieService.get('user')).useR_EMAIL,
+        "USER_EMAIL":JSON.parse(this.cookieService.get('user')).useR_EMAIL,
         "USER_ID":JSON.parse(this.cookieService.get('user')).useR_ID
     }
     console.log(JSON.parse(this.cookieService.get('user')).useR_ID)
@@ -123,7 +123,12 @@ export class UserService {
 
   formQuestion=this.fb.group(
     {
-      tag:["",Validators.required]
+      tag:[""],
+      Title:["",[Validators.required,Validators.minLength(10)]],
+      Category:[""],
+      Details:["<p>Write your question here!</p>",[Validators.required]],
+      getNotication:[""],
+      agree:["",[Validators.requiredTrue]]
     }
   )
   postQuestion()

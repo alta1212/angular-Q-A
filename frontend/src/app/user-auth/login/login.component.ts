@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Title} from "@angular/platform-browser";
-import { UserService } from 'src/app/share/user.service';
+import { UserService } from 'src/app/share/user/user.service';
 import {CookieService} from 'ngx-cookie-service';
 import { AppModule } from 'src/app/app.module';
 declare var cuteToast: any;

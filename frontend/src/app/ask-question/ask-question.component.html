@@ -33,8 +33,9 @@
                             <label class="fs-14 text-black fw-medium mb-0">Question Title</label>
                             <p class="fs-13 pb-3 lh-20">Be specific and imagine you’re asking a question to another person</p>
                             <div class="form-group">
-                                <input class="form-control form--control" type="text" name="text" placeholder="e.g. Is there an R function for finding the index of an element in a vector?">
+                                <input formControlName="Title" class="form-control form--control" type="text" name="text" placeholder="e.g. Is there an R function for finding the index of an element in a vector?">
                             </div>
+                            <p *ngIf="service.formQuestion.get('Title').touched  && service.formQuestion.get('Title').errors" class="fs-13 lh-18" style="color: red;">Title can't be null and at less 10 character</p>
                         </div><!-- end input-box -->
                         <div class="input-box">
                             <div class="d-flex align-items-center justify-content-between">
@@ -52,16 +53,11 @@
                                         <li class="lh-18 text-black-50">Identify your tags by completing the sentence, "My question is about…"</li>
                                         <li class="lh-18 text-black-50">Include tags that are crucial to your question only, like <div class="tag-link">c#</div></li>
                                         <li class="lh-18 text-black-50">Only include version numbers, like <div class="tag-link">c#-4.0</div>, when absolutely necessary</li>
-                                        <li class="lh-18 text-black-50">Use existing <a href="#" class="d-inline-block text-color hover-underline" target="_blank">popular tags</a></li>
                                     </ul>
-                                    <p class="pb-1 fs-14">If you can’t find a tag:</p>
-                                    <p class="fs-14 text-black-50"><a href="#" class="text-color hover-underline" target="_blank">Create new tags</a> or post without it and <a href="#" class="text-color hover-underline" target="_blank">ask the community</a>
-                                        to create one for you.
-                                    </p>
+                                   
                                 </div><!-- end generic-popover -->
                             </div>
                             <div class="form-group">
-                               
                                 <ng-selectize  formControlName="tag" [placeholder]="tagPlaceholer" name="tag" [config]="config"></ng-selectize>
                             </div>
                         </div><!-- end input-box -->
@@ -69,35 +65,22 @@
                             <label class="fs-14 text-black fw-medium mb-0">Category</label>
                             <p class="fs-13 pb-3 lh-20">Please choose the appropriate section so the question can be searched easily.</p>
                             <div class="form-group">
-                                <select class="select-container select--container" data-placeholder="Select a Category">
-                                    <option selected value="">Select a Category</option>
-                                    <option value="1">Analytics</option>
-                                    <option value="2">Communication</option>
-                                    <option value="3">Company</option>
-                                    <option value="4">Language</option>
-                                    <option value="5">Management</option>
-                                    <option value="6">Programmers</option>
-                                    <option value="7">Programs</option>
-                                    <option value="8">University</option>
-                                </select>
+                                <ng-selectize formControlName="Category"  [options]="CategoryOptions" [config]="CategoryConfig" >
+
+                                </ng-selectize>
+
                             </div>
                         </div><!-- end input-box -->
                         <div class="input-box">
                             <label class="fs-14 text-black fw-medium mb-0">Details</label>
                             <p class="fs-13 pb-3 lh-20">Include all the information someone would need to answer your question</p>
                             <div class="form-group">
-                                <textarea class="form-control form--control user-text-editor" rows="10" cols="40"></textarea>
-                                <div class="d-flex align-items-center pt-2">
-                                    <div class="mr-3">
-                                        ``` <code class="badge bg-gray border border-gray text-gray">code</code> ```
-                                    </div>
-                                    <div class="mr-3 fw-bold">**bold**</div>
-                                    <div class="mr-3 font-italic">*italic*</div>
-                                    <div>&gt;quote</div>
-                                </div>
+                                <ckeditor formControlName="Details" [editor]="Editor" [config]="ckConfig"></ckeditor>
+                                <p *ngIf="service.formQuestion.get('Details').touched  && service.formQuestion.get('Details').errors" class="fs-13 lh-18" style="color: red;">Enter your question !</p>
+
                             </div>
                         </div><!-- end input-box -->
-                        <div class="input-box">
+                        <!-- <div class="input-box">
                             <label class="fs-14 text-black fw-medium">Image</label>
                             <div class="form-group">
                                 <div class="file-upload-wrap file-upload-layout-2">
@@ -105,20 +88,20 @@
                                     <span class="file-upload-text d-flex align-items-center justify-content-center"><i class="la la-cloud-upload mr-2 fs-24"></i>Drop files here or click to upload.</span>
                                 </div>
                             </div>
-                        </div><!-- end input-box -->
+                        </div> -->
                         <div class="input-box pt-2">
                             <div class="form-group">
                                 <div class="custom-control custom-checkbox fs-13 mb-1">
-                                    <input type="checkbox" class="custom-control-input" id="notifiedMe">
+                                    <input formControlName="getNotication" type="checkbox" class="custom-control-input" id="notifiedMe">
                                     <label class="custom-control-label custom--control-label" for="notifiedMe">Get notified by email when someone answers this question.</label>
                                 </div>
                                 <div class="custom-control custom-checkbox fs-13">
-                                    <input type="checkbox" class="custom-control-input" id="youAgreeCheckBox">
-                                    <label class="custom-control-label custom--control-label" for="youAgreeCheckBox">By asking your question, you agree to the <a href="privacy-policy.html" class="text-color hover-underline">Privacy Policy.</a></label>
+                                    <input formControlName="agree" type="checkbox" class="custom-control-input" id="youAgreeCheckBox">
+                                    <label  class="custom-control-label custom--control-label" for="youAgreeCheckBox">By asking your question, you agree to the <a href="privacy-policy.html" class="text-color hover-underline">Privacy Policy.</a></label>
                                 </div>
                             </div>
                             <div class="btn-box">
-                                <button type="submit" class="btn theme-btn">Publish your question</button>
+                                <button [disabled]="!service.formQuestion.valid " type="submit" class="btn theme-btn">Publish your question</button>
                             </div>
                         </div>
                     </form>

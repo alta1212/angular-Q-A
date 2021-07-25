@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/share/user.service';
+import { UserService } from 'src/app/share/user/user.service';
 import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-account-bar',

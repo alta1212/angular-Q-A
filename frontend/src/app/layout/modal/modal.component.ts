@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 declare var cuteToast: any;
-import { UserService } from 'src/app/share/user.service';
+import { UserService } from 'src/app/share/user/user.service';
 import {CookieService} from 'ngx-cookie-service';
 import { AppModule } from 'src/app/app.module';
 @Component({
