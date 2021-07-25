@@ -67,9 +67,6 @@ namespace backend.Controllers
         [HttpPost]
         public userModel verify2Fa(twofaVerifyCode code)
         {
-           
-          
-              
                 if (check2fa(code))
                 {
 

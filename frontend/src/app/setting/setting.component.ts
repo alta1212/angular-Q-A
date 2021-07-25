@@ -43,7 +43,7 @@ export class SettingComponent implements OnInit {
 
   verity2faCode(code)
   {
-    this.service.checkTwoFaCode(code).subscribe(
+    this.service.enableTwoFaCode(code).subscribe(
       (res) => {
        console.log(res)
         if(res=="true")

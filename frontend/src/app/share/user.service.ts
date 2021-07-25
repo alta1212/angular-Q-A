@@ -58,10 +58,10 @@ export class UserService {
   {
     var body=
     {
-      
-        "USER_EMAIL":JSON.parse(this.cookieService.get('user')).useR_EMAIL
+      "USER_EMAIL":JSON.parse(this.cookieService.get('user')).useR_EMAIL,
+        "USER_ID":JSON.parse(this.cookieService.get('user')).useR_ID
     }
-    console.log(JSON.parse(this.cookieService.get('user')).useR_EMAIL)
+    console.log(JSON.parse(this.cookieService.get('user')).useR_ID)
     console.log(JSON.parse(this.cookieService.get('user')))
      return this.http.post(this.BaseURI+"user/getQr2fa",body,
      { responseType: 'text' });
@@ -72,7 +72,7 @@ export class UserService {
     var body=
     {
         "code":s,
-        "UserUniqueKey":"doremon209a@gmail.com"
+        "UserUniqueKey":JSON.parse(this.cookieService.get('user')).useR_ID
     }
 
     return this.http.post(this.BaseURI+"user/check2fa",
@@ -80,7 +80,19 @@ export class UserService {
     { responseType: 'text' });
   }
 
+  //kiểm tra 2 facode
+  enableTwoFaCode(s)
+  {
+    var body=
+    {
+        "code":s,
+        "UserUniqueKey":JSON.parse(this.cookieService.get('user')).useR_ID
+    }
 
+    return this.http.post(this.BaseURI+"user/enable2fa",
+    body,
+    { responseType: 'text' });
+  }
 
   //kiểm tra 2fa code khi login
   //-------------end 2fa code
