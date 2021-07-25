@@ -54,7 +54,7 @@ namespace backend.Controllers
         public object create2FaQrCode(userModel user)
         {
             TwoFactorAuthenticator tfa = new TwoFactorAuthenticator();
-            string UserUniqueKey =user.USER_EMAIL+key; 
+            string UserUniqueKey =user.USER_ID+key; 
             //   var hash =System.Text.Encoding.UTF8.GetBytes(UserUniqueKey);
             
             //  return System.Text.Encoding.UTF8.GetString(hash);
@@ -69,11 +69,8 @@ namespace backend.Controllers
         {
            
           
-                TwoFactorAuthenticator tfa = new TwoFactorAuthenticator();
               
-                bool isValid = tfa.ValidateTwoFactorPIN(code.UserUniqueKey+key, code.code);
-              //  bool isValid = tfa.ValidateTwoFactorPIN(code.UserUniqueKey, code.code);
-                if (isValid)
+                if (check2fa(code))
                 {
 
                   User_.token=tool.token(config);
@@ -83,6 +80,27 @@ namespace backend.Controllers
                 return null;
         }
        
+        [Route("enable2fa")]
+        [HttpPost]
+        public bool enable2fa(twofaVerifyCode code)
+        {
+             
+                if (check2fa(code))
+                {
+
+                  
+                  return true;
+                }
+                return false;
+        }
+        
+        public bool check2fa(twofaVerifyCode code)
+        {
+          TwoFactorAuthenticator tfa = new TwoFactorAuthenticator();
+              
+          return tfa.ValidateTwoFactorPIN(code.UserUniqueKey+key, code.code);
+    
+        }
       #endregion 2fa
       #region auth
       [HttpPost]
@@ -94,7 +112,7 @@ namespace backend.Controllers
         {
           if(iuserBUS.login(user).Tfa=="0")//kiếm tra nếu người dùng bật 2fa
           {
-               User_.USER_PASSWORD=null;
+               user.USER_PASSWORD=null;
                user.token=tool.token(config);
                return user; 
           }

@@ -28,7 +28,7 @@ import { ReactiveFormsModule,FormGroup, FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { QuestionsDetailComponent } from './questions-detail/questions-detail.component';
 import { QuestionsDetailModule } from './questions-detail/questions-detail.module';
-
+import {NgSelectizeModule} from 'ng-selectize';
 export function returnToken()
 {
     return JSON.parse(this.cookieService.get('user')).token;
@@ -47,6 +47,7 @@ export function returnToken()
     QuestionsDetailComponent
   ],
   imports: [
+    NgSelectizeModule,
     BrowserModule,
     AppRoutingModule,
     UserAuthModule,
@@ -62,6 +63,7 @@ export function returnToken()
     HttpClientModule,
     FormsModule,
     QuestionsDetailModule,
+    ReactiveFormsModule,
     JwtModule.forRoot({
       config:{
         tokenGetter:returnToken,

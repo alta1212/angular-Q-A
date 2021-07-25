@@ -108,4 +108,14 @@ export class UserService {
    //   window.location.href = '/signin';
       return false;
   }
+
+  formQuestion=this.fb.group(
+    {
+      tag:["",Validators.required]
+    }
+  )
+  postQuestion()
+  {
+    return this.formQuestion.value
+  }
 }
