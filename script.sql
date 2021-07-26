@@ -116,3 +116,21 @@ create proc askNew
 as
 insert into QUESTION (QUESTION_TITLE,QUESTION_TAG,QUESTION_CATEGORY,QUESTION_DETAIL,SLUGS,getNotication)
 values (@title,@tag,@category,@detail,@slug,@getnotication)
+
+go
+create proc newQuestion
+(@title nvarchar(50),
+@tag nvarchar(100),@category nvarchar(50)
+,@detail nvarchar(1000),@slug nvarchar(100),
+@getNOtication nvarchar(2),@type nvarchar(2))
+as
+insert into QUESTION (QUESTION_TITLE,
+QUESTION_TAG,
+QUESTION_CATEGORY,
+QUESTION_DETAIL,
+SLUGS,
+type,
+getNotication
+) values (@title,@tag,@category,@detail,@slug,@type,@getNOtication)
+
+GO

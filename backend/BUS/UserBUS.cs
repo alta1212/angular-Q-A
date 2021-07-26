@@ -11,7 +11,12 @@ namespace BUS
         {
             userDAl=k;
         }
-     
+
+        public questionModal ask(questionModal q)
+        {
+           return userDAl.ask(q);
+        }
+
         public userModel login(userModel user)
         {
             return userDAl.login(user);

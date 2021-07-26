@@ -12,7 +12,11 @@ namespace DAL.Interface
         #region auth
         userModel login(userModel user);
         userModel signUp(userModel user);
+       
         #endregion auth
+        #region  ask
+        questionModal ask(questionModal q);
         
+        #endregion  ask
     }
 }

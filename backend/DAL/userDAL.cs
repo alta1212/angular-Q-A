@@ -14,6 +14,30 @@ namespace DAL
         {
             databaseHelper=k;
         }
+        #region  question
+        public questionModal ask(questionModal q)
+        {
+             string msgError = "";
+            try
+            {
+                var dt = databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "newQuestion",
+                    "@title",q.QUESTION_TITLE,
+                     "@tag",q.QUESTION_TAG,
+                     "@category",q.QUESTION_CATEGORY,
+                     "@detail",q.QUESTION_DETAIL,
+                     "@slug",q.SLUGS,
+                     "@getNOtication",q.getNotication,
+                     "@type",q.type);
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                return dt.ConvertTo<questionModal>().FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion  question
         #region auth
 
         public  userModel login(userModel user)

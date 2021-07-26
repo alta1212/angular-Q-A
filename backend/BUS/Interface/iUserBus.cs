@@ -12,6 +12,8 @@ namespace BUS.Interface
         userModel login(userModel user);
         userModel signUp(userModel user);
         #endregion auth
-        
+        #region  question
+        questionModal ask(questionModal q);
+        #endregion question
     }
 }
