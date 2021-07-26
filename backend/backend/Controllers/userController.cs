@@ -132,6 +132,21 @@ namespace backend.Controllers
 
       }
       #endregion auth
+      #region question
+
+     //question
+
+      [HttpPost]
+      [Route("ask")]
+      public questionModal ask (questionModal ques)
+      {
+          return ques;
+      }
+
+
+
+      
+      #endregion question
     }
     
 }

@@ -128,11 +128,25 @@ export class UserService {
       Category:[""],
       Details:["<p>Write your question here!</p>",[Validators.required]],
       getNotication:[""],
-      agree:["",[Validators.requiredTrue]]
+      agree:["",[Validators.requiredTrue]],
+      type:[""]
     }
   )
   postQuestion()
   {
-    return this.formQuestion.value
+    var body=
+    {
+       'QUESTION_TITLE':this.formQuestion.value.Title,
+       'QUESTION_TAG':this.formQuestion.value.tag,
+       'QUESTION_CATEGORY':this.formQuestion.value.Category,
+       'QUESTION_DETAIL':this.formQuestion.value.Details,
+       'getNotication':this.formQuestion.value.getNotication,
+       'type':this.formQuestion.value.Title,
+    }
+
+    return this.http.post(this.BaseURI+"user/ask",
+    body,
+    { responseType: 'text' });
+  
   }
 }

@@ -93,7 +93,7 @@ CREATE TABLE CATEGORY(
     SLUGS NVARCHAR(500)
 )
 
-
+go
 create proc userSignup 
 (@username nvarchar(100),@usermail nvarchar(100),@userpassword nvarchar(100),@slug nvarchar(100))
 as
@@ -105,12 +105,12 @@ create proc userLogin
 (@usermail nvarchar(100),@userpassword nvarchar(100))
 as
 select * from Infouser where USER_EMAIL=@usermail and USER_PASSWORD=@userpassword
-
+go
 
 create proc getCategory 
 as
 select * from category
-
+go
 create proc askNew
 (@title nvarchar(100),@tag nvarchar(100),@detail nvarchar(1000),@category nvarchar(10),@slug nvarchar(150),@getnotication nvarchar(10))
 as

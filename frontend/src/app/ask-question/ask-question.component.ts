@@ -60,7 +60,15 @@ export class AskQuestionComponent implements OnInit {
   }
   postQuestionSubmit()
   {
-   console.log(this.service.postQuestion()) ;
+    this.service.postQuestion().subscribe(
+      (res:any) => {
+        console.log(res)
+        JSON.parse(JSON.stringify((<any>res)))
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
   tag=[];
   tagPlaceholer="e.g. javascript"
