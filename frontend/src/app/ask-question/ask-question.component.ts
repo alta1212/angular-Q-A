@@ -64,6 +64,7 @@ export class AskQuestionComponent implements OnInit {
       (res:any) => {
         console.log(res)
         JSON.parse(JSON.stringify((<any>res)))
+       window.location.href="/question/"+res.slugs
       },
       err => {
         console.log(err);

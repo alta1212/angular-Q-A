@@ -9,9 +9,12 @@ import { SystemService } from '../share/system/system.service';
 })
 export class QuestionsDetailComponent implements OnInit {
   private routeSub: Subscription;
+  questionTitle; 
+  questionBody;
+  questionTag="";
   constructor(private route: ActivatedRoute,private system:SystemService) { }
   private id ;
-  questionBody;
+
   ngOnInit(): void {
     this.routeSub = this.route.params.subscribe(params => {
       console.log(params) //log the entire params object
@@ -19,12 +22,15 @@ export class QuestionsDetailComponent implements OnInit {
       this.id=params['id'];
     });
     this.system.getAllQuestionDetail(this.id).subscribe(
-      (res) => {
+      (res:any) => {
          Object.keys(res).map(key => res[key]);
           console.log(res)
-          const question = Object["values"](res);
-         this.questionBody=question[4]
-          ;
+          var tagList=res.questioN_TAG.split(",",);
+          tagList.forEach(tag => {
+            this.questionTag+='<a href="#" class="tag-link">'+tag+'</a>';
+          });
+          this.questionBody=res.questioN_DETAIL;
+          this.questionTitle=res.questioN_TITLE;
       },
       err=>{
         console.log(err)

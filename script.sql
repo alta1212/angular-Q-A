@@ -49,8 +49,9 @@ CREATE TABLE QUESTION(--CÂU HỎI
     QUESTION_DETAIL NVARCHAR(1000),
     QUESTION_IMAGE NVARCHAR(100),
     SLUGS NVARCHAR(500),
-    getNotication nvarchar(10)
-    type nvarchar(10)
+    getNotication nvarchar(10),
+    type nvarchar(10),
+    author int
 )
 GO
 
@@ -67,7 +68,8 @@ CREATE TABLE QUESTION_REPLY(---TRẢ LỜI CÂU HỎI
     QUESTION_ID INT,
     PIN INT,---NẾU GHIM CÂU TRẢ LỜI(CHỈ CHỦ CÂU HỎI MỚI CÓ THỂ GHIM)
     QUESTION_DETAIL NVARCHAR(1000),
-    QUESTION_IMAGE NVARCHAR(100)
+    QUESTION_IMAGE NVARCHAR(100),
+    author int
 )
 GO
 CREATE TABLE COMMENT_REPLY(--COMMENT CÂU TRẢ LỜI
