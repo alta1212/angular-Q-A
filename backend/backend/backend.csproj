@@ -14,10 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Tool\Tool.csproj" />
     <ProjectReference Include="..\MODELS\MODELS.csproj" />
     <ProjectReference Include="..\BUS\BUS.csproj" />
-    <ProjectReference Include="..\Tool\Tool.csproj" />
-    <ProjectReference Include="..\DAL\DAL.csproj" />
   </ItemGroup>
 
 </Project>

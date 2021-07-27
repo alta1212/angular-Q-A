@@ -79,7 +79,7 @@ export class AskQuestionComponent implements OnInit {
     maxItems: 10
   }
 
-
+  
 
 	CategoryConfig= {
     labelField: 'label',

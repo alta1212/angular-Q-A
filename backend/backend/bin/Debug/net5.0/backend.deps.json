@@ -34,7 +34,6 @@
       "backend/1.0.0": {
         "dependencies": {
           "BUS": "1.0.0",
-          "DAL": "1.0.0",
           "GoogleAuthenticator": "2.2.0",
           "MODELS": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.6",

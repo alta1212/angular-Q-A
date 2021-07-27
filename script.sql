@@ -49,7 +49,7 @@ CREATE TABLE QUESTION(--CÂU HỎI
     QUESTION_DETAIL NVARCHAR(1000),
     QUESTION_IMAGE NVARCHAR(100),
     SLUGS NVARCHAR(500),
-    getNotication int,
+    getNotication nvarchar(10)
     type nvarchar(10)
 )
 GO
@@ -110,19 +110,13 @@ go
 create proc getCategory 
 as
 select * from category
-go
-create proc askNew
-(@title nvarchar(100),@tag nvarchar(100),@detail nvarchar(1000),@category nvarchar(10),@slug nvarchar(150),@getnotication nvarchar(10))
-as
-insert into QUESTION (QUESTION_TITLE,QUESTION_TAG,QUESTION_CATEGORY,QUESTION_DETAIL,SLUGS,getNotication)
-values (@title,@tag,@category,@detail,@slug,@getnotication)
 
 go
 create proc newQuestion
 (@title nvarchar(50),
 @tag nvarchar(100),@category nvarchar(50)
 ,@detail nvarchar(1000),@slug nvarchar(100),
-@getNOtication nvarchar(2),@type nvarchar(2))
+@getNOtication nvarchar(5),@type nvarchar(5))
 as
 insert into QUESTION (QUESTION_TITLE,
 QUESTION_TAG,
@@ -134,3 +128,10 @@ getNotication
 ) values (@title,@tag,@category,@detail,@slug,@type,@getNOtication)
 
 GO
+
+
+create proc QuestionDetail
+(@slug nvarchar(200))
+as
+select * from QUESTION where SLUGS =@slug
+go

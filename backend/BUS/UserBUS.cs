@@ -14,6 +14,7 @@ namespace BUS
 
         public questionModal ask(questionModal q)
         {
+           
            return userDAl.ask(q);
         }
 

@@ -19,4 +19,9 @@ export class SystemService {
     // { responseType: 'text' });
     return this.http.get(this.BaseURI+"Category/getAllCategory",{responseType: 'json'});
   }
+  getAllQuestionDetail(id)
+  {
+   
+    return this.http.get(this.BaseURI+"system/questionDetail/"+id,{responseType: 'json'});
+  }
 }

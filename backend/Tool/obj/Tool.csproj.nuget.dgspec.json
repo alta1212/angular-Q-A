@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\Tool\\Tool.csproj": {}
+    "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\Tool\\Tool.csproj": {}
   },
   "projects": {
-    "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\Tool\\Tool.csproj": {
+    "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\Tool\\Tool.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\Tool\\Tool.csproj",
+        "projectUniqueName": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\Tool\\Tool.csproj",
         "projectName": "Tool",
-        "projectPath": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\Tool\\Tool.csproj",
-        "packagesPath": "C:\\Users\\welcome\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\Tool\\obj\\",
+        "projectPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\Tool\\Tool.csproj",
+        "packagesPath": "C:\\Users\\tuan anh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\Tool\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\welcome\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\tuan anh\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -64,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

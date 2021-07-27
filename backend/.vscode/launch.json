@@ -10,7 +10,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             "program": "${workspaceFolder}/backend/bin/Debug/net5.0/backend.dll",
-            "args": [],
+            "args": ["debug"],
             "cwd": "${workspaceFolder}/backend",
             "stopAtEntry": false,
             "serverReadyAction": {

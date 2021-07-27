@@ -129,7 +129,7 @@ export class UserService {
       Details:["<p>Write your question here!</p>",[Validators.required]],
       getNotication:[""],
       agree:["",[Validators.requiredTrue]],
-      type:[""]
+      private:[""]
     }
   )
   postQuestion()
@@ -137,16 +137,15 @@ export class UserService {
     var body=
     {
        'QUESTION_TITLE':this.formQuestion.value.Title,
-       'QUESTION_TAG':this.formQuestion.value.tag,
+       'QUESTION_TAG':this.formQuestion.value.tag.toString(),
        'QUESTION_CATEGORY':this.formQuestion.value.Category,
        'QUESTION_DETAIL':this.formQuestion.value.Details,
        'getNotication':this.formQuestion.value.getNotication,
-       'type':this.formQuestion.value.Title,
+       'type':this.formQuestion.value.private,
     }
 
     return this.http.post(this.BaseURI+"user/ask",
-    body,
-    { responseType: 'text' });
+    body);
   
   }
 }

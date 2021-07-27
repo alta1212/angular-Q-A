@@ -31,13 +31,13 @@ namespace backend.Controllers
         iuserBUS=k;
       }
 
-        [HttpGet]
-        [Authorize(Roles = "login")]
-        [Route("testau")]
-        public string s()
-        {
-          return "sâ";
-        }
+        // [HttpGet]
+        // [Authorize(Roles = "login")]
+        // [Route("testau")]
+        // public string s()
+        // {
+        //   return "sâ";
+        // }
 
       Tool.tool tool= new Tool.tool();
       SlugHelper helper = new SlugHelper();
@@ -140,7 +140,9 @@ namespace backend.Controllers
       [Route("ask")]
       public questionModal ask (questionModal ques)
       {
-          return ques;
+      
+          ques.SLUGS= helper.GenerateSlug(ques.QUESTION_TITLE);
+          return iuserBUS.ask(ques);
       }
 
 

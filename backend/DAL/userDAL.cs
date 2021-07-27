@@ -17,6 +17,8 @@ namespace DAL
         #region  question
         public questionModal ask(questionModal q)
         {
+
+             
              string msgError = "";
             try
             {
@@ -30,7 +32,7 @@ namespace DAL
                      "@type",q.type);
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
-                return dt.ConvertTo<questionModal>().FirstOrDefault();
+                return q;
             }
             catch (Exception ex)
             {
