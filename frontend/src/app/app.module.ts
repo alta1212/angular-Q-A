@@ -31,6 +31,7 @@ import { QuestionsDetailModule } from './questions-detail/questions-detail.modul
 import {NgSelectizeModule} from 'ng-selectize';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { MailTemplateComponent } from './mail-template/mail-template.component';
 export function returnToken()
 {
     return JSON.parse(this.cookieService.get('user')).token;
@@ -46,7 +47,8 @@ export function returnToken()
     SettingComponent,
     AskQuestionComponent,
     ForgotPasswordComponent,
-    QuestionsDetailComponent
+    QuestionsDetailComponent,
+    MailTemplateComponent
   ],
   imports: [
     NgSelectizeModule,

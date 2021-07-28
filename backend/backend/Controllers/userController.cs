@@ -33,12 +33,14 @@ namespace backend.Controllers
         iuserBUS=k;
       }
 
+        
      
         [HttpGet]
-        [Route("testau/{f}")]
-        public object s(string f)
+        [Route("testmail")]
+        public string s()
         {
-          return tool.decryption(f);
+           tool.SendMessageSmtp();
+           return "ok";
         }
         // [HttpGet]
         // [Authorize(Roles = "login")]
@@ -165,7 +167,7 @@ namespace backend.Controllers
      //question
 
       [HttpPost]
-      [Route("ask/{token}")]
+      [Route("/{token}")]
       public questionModal ask (questionModal ques,string token)
       {
           ques.author=int.Parse(tool.decryption(token));

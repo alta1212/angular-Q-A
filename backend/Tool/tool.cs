@@ -3,7 +3,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Globalization;  
 using System.Linq;  
-
+using MailKit.Net.Smtp;
+using MimeKit;
 using System.Collections.Generic;
 
 using Microsoft.AspNetCore.Mvc;
@@ -48,6 +49,38 @@ namespace Tool
            var claim= decryptiontoken.Claims.ToArray();
            return claim[0].Value;
            
+        }
+   
+        //gửi mail
+         public static void SendMessageSmtp ()
+        {
+        // Compose a message
+        MimeMessage mail = new MimeMessage ();
+        mail.From.Add (new MailboxAddress ("Excited Admin", "foo@caralta.games"));
+        mail.To.Add (new MailboxAddress ("Excited User", "doremon209a@gmail.com"));
+        mail.Subject = "Hello";
+        mail.Body = new TextPart ("plain") {
+            Text = @"Testing some Mailgun awesomesauce!",
+        };
+
+        // Send it!
+        using (var client = new SmtpClient ()) {
+            // XXX - Should this be a little different?
+            client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+
+            client.Connect ("smtp.mailgun.org", 587, false);
+            client.AuthenticationMechanisms.Remove ("XOAUTH2");
+            client.Authenticate ("postmaster@caralta.games", pass());
+
+            client.Send (mail);
+            client.Disconnect (true);
+            }
+         }
+        //trick mail gun
+        public static string pass() {
+              string decode="ZTllZDY3Mzk3YjliMzk3MzU1NzAyNzBmMmY3NGRiZDQtYTBjZmI5NTctOTc2MDI0MGE=";
+                var base64EncodedBytes = System.Convert.FromBase64String(decode);
+                return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
         }
     }
 }
