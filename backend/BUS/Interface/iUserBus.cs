@@ -11,9 +11,12 @@ namespace BUS.Interface
         #region auth
         userModel login(userModel user);
         userModel signUp(userModel user);
+        bool enable2fa(string id); 
+        bool disable2fa(string v);
         #endregion auth
         #region  question
         questionModal ask(questionModal q);
+       
         #endregion question
     }
 }

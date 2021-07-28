@@ -5,5 +5,7 @@ namespace MODELS
        public string code   {get;set;}
        
        public string UserUniqueKey   {get;set;}
+
+       public string token {get;set;}
     }
 }

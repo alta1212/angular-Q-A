@@ -240,7 +240,8 @@
                                             <label class="fs-14 text-black lh-20 fw-medium mb-0">2Fa authenticator</label>
                                             <span class="fs-13 d-block lh-18 pb-3">Enable 2fa authenticator to your account</span>
                                             <div class="form-group">
-                                                <button type="button" (click)="twofaopen()" class="btn btn-primary">Set up</button>
+                                                <button *ngIf="Enable2fa==0" type="button" (click)="twofaopen()" class="btn btn-primary">Set up</button>
+                                                <button *ngIf="Enable2fa==1" type="button" (click)="Deactivate()" class="btn btn-primary">Deactivate 2fa</button>
                                             </div>
                                         </div>
                                     </div><!-- end settings-item -->
@@ -552,6 +553,21 @@
         <input #twoFaCode required id="2faOtp" type="text" name="otp" class="form-control form--control" placeholder="Confirm 2FA Code">
         <br>
         <button (click)="verity2faCode(twoFaCode.value)" class="alert-button info-bg info-btn">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="DeactivateTfa" class="alert-wrapper">
+    <div class="alert-frame">
+      <div class="alert-header info-bg">
+        <span (click)="closeDeactivateTwoFaForm()" class="alert-close">X</span>
+        <img   id="qr" class="alert-img" src="../../assets/toast/img/info.svg" />
+      </div>
+      <div class="alert-body">
+        <span style="font-size: 13px !important;" class="alert-title">Enter 2fa Code to Confirm that you</span>
+        <input #twoFaCodeDisable required id="2faOtp" type="text" name="otp" class="form-control form--control" placeholder="Confirm 2FA Code">
+        <br>
+        <button (click)="verityDeactivate2faCode(twoFaCodeDisable.value)" class="alert-button info-bg info-btn">Confirm</button>
       </div>
     </div>
   </div>

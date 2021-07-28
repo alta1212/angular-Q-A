@@ -14,6 +14,8 @@ using MODELS;
 using Tool;
 using BUS.Interface;
 using Newtonsoft.Json;
+using System.IdentityModel.Tokens.Jwt;
+
 namespace backend.Controllers
 {
 
@@ -31,6 +33,13 @@ namespace backend.Controllers
         iuserBUS=k;
       }
 
+     
+        [HttpGet]
+        [Route("testau/{f}")]
+        public object s(string f)
+        {
+          return tool.decryption(f);
+        }
         // [HttpGet]
         // [Authorize(Roles = "login")]
         // [Route("testau")]
@@ -67,10 +76,20 @@ namespace backend.Controllers
         [HttpPost]
         public userModel verify2Fa(twofaVerifyCode code)
         {
+              if(code.token!=null)
+              {
+                    var idUser=tool.decryption(code.token);
+                    code.UserUniqueKey=idUser;
+              }
+              else
+              {
+                    
+              }
+                
                 if (check2fa(code))
                 {
 
-                  User_.token=tool.token(config);
+                  User_.token=tool.token(config,User_);
                   User_.USER_PASSWORD=null;
                   return User_;
                 }
@@ -81,16 +100,25 @@ namespace backend.Controllers
         [HttpPost]
         public bool enable2fa(twofaVerifyCode code)
         {
-             
+                var idUser=tool.decryption(code.token);
+                code.UserUniqueKey=idUser;
                 if (check2fa(code))
                 {
-
-                  
-                  return true;
+                  return iuserBUS.enable2fa(tool.decryption(code.token));
                 }
                 return false;
         }
-        
+        [Route("disable2fa")]
+        [HttpPost]
+        public bool disable2fa(twofaVerifyCode code)
+        {       var idUser=tool.decryption(code.token);
+                code.UserUniqueKey=idUser;
+                if (check2fa(code))
+                {
+                  return iuserBUS.disable2fa(idUser);
+                }
+                return false;
+        }
         public bool check2fa(twofaVerifyCode code)
         {
           TwoFactorAuthenticator tfa = new TwoFactorAuthenticator();
@@ -110,7 +138,7 @@ namespace backend.Controllers
           if(iuserBUS.login(user).Tfa=="0")//kiếm tra nếu người dùng bật 2fa
           {
                user.USER_PASSWORD=null;
-               user.token=tool.token(config);
+               user.token=tool.token(config,user);
                return user; 
           }
           User_=user;
@@ -137,10 +165,10 @@ namespace backend.Controllers
      //question
 
       [HttpPost]
-      [Route("ask")]
-      public questionModal ask (questionModal ques)
+      [Route("ask/{token}")]
+      public questionModal ask (questionModal ques,string token)
       {
-      
+          ques.author=int.Parse(tool.decryption(token));
           ques.SLUGS= helper.GenerateSlug(ques.QUESTION_TITLE);
           return iuserBUS.ask(ques);
       }

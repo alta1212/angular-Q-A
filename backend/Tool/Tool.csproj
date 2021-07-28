@@ -7,4 +7,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.5" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MODELS\MODELS.csproj" />
+  </ItemGroup>
 </Project>

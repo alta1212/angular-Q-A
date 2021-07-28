@@ -5,6 +5,7 @@ namespace MODELS
     public class questionModal
     {
         public int QUESTION_ID { get; set; }
+        public int author{ get; set; }
         public string QUESTION_TITLE { get; set; }
         public string QUESTION_TAG { get; set; }
         public string QUESTION_CATEGORY { get; set; }

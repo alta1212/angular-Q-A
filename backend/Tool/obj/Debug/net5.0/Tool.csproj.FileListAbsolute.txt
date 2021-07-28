@@ -34,3 +34,6 @@ C:\Users\welcome\Desktop\angular-Q-A\backend\Tool\obj\Debug\net5.0\Tool.csproj.C
 C:\Users\welcome\Desktop\angular-Q-A\backend\Tool\obj\Debug\net5.0\Tool.dll
 C:\Users\welcome\Desktop\angular-Q-A\backend\Tool\obj\Debug\net5.0\ref\Tool.dll
 C:\Users\welcome\Desktop\angular-Q-A\backend\Tool\obj\Debug\net5.0\Tool.pdb
+C:\Users\tuan anh\Documents\angular Q&A\backend\Tool\bin\Debug\net5.0\MODELS.dll
+C:\Users\tuan anh\Documents\angular Q&A\backend\Tool\bin\Debug\net5.0\MODELS.pdb
+C:\Users\tuan anh\Documents\angular Q&A\backend\Tool\obj\Debug\net5.0\Tool.csproj.CopyComplete

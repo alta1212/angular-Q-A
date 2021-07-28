@@ -114,11 +114,13 @@ as
 select * from category
 
 go
-create proc newQuestion
+
+create proc [dbo].[newQuestion]
 (@title nvarchar(50),
 @tag nvarchar(100),@category nvarchar(50)
 ,@detail nvarchar(1000),@slug nvarchar(100),
-@getNOtication nvarchar(5),@type nvarchar(5))
+@getNOtication nvarchar(5),@type nvarchar(5),
+@author nvarchar(10))
 as
 insert into QUESTION (QUESTION_TITLE,
 QUESTION_TAG,
@@ -126,10 +128,12 @@ QUESTION_CATEGORY,
 QUESTION_DETAIL,
 SLUGS,
 type,
-getNotication
-) values (@title,@tag,@category,@detail,@slug,@type,@getNOtication)
+getNotication,
+author
+) values (@title,@tag,@category,@detail,@slug,@type,@getNOtication,@author)
 
 GO
+
 
 
 create proc QuestionDetail
@@ -137,3 +141,17 @@ create proc QuestionDetail
 as
 select * from QUESTION where SLUGS =@slug
 go
+
+go
+CREATE proc ENABLE2fa(@id nvarchar(10)) AS
+update Infouser set Tfa=1 
+where USER_ID=@id
+
+go
+
+    go
+    CREATE proc disable2fa(@id nvarchar(10)) AS
+    update Infouser set Tfa=0 
+    where USER_ID=@id
+
+    go

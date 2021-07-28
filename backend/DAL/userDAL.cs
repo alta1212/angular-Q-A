@@ -29,7 +29,8 @@ namespace DAL
                      "@detail",q.QUESTION_DETAIL,
                      "@slug",q.SLUGS,
                      "@getNOtication",q.getNotication,
-                     "@type",q.type);
+                     "@type",q.type,
+                     "@author",q.author);
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
                 return q;
@@ -88,6 +89,41 @@ namespace DAL
            
         }
 
+        public bool enable2fa(string id)
+        {
+             string msgError = "";
+            try
+            {
+                var dt = databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "ENABLE2fa",
+                     "@id", id   
+                     );
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool disable2fa(string id)
+        {
+             string msgError = "";
+            try
+            {
+                var dt = databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "disable2fa",
+                     "@id", id   
+                     );
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion auth
     }
 }

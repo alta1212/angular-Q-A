@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { CanActivate,Router } from '@angular/router';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { CookieService } from 'ngx-cookie-service';
+import { stringify } from '@angular/compiler/src/util';
 @Injectable({
   providedIn: 'root'
 })
@@ -70,7 +71,8 @@ export class UserService {
   checkTwoFaCode(s)
   {
     var body=
-    {
+    { 
+        "token":JSON.parse(this.cookieService.get('user')).token,
         "code":s,
         "UserUniqueKey":JSON.parse(this.cookieService.get('user')).useR_ID
     }
@@ -84,16 +86,30 @@ export class UserService {
   enableTwoFaCode(s)
   {
     var body=
-    {
-        "code":s,
-        "UserUniqueKey":JSON.parse(this.cookieService.get('user')).useR_ID
+    {   
+      "token":JSON.parse(this.cookieService.get('user')).token,
+      "code":s
+       
     }
 
     return this.http.post(this.BaseURI+"user/enable2fa",
     body,
     { responseType: 'text' });
   }
+  
+  disableTwoFaCode(s)
+  {
+    var body=
+    {   
+        "token":JSON.parse(this.cookieService.get('user')).token,
+        "code":s
+       
+    }
 
+    return this.http.post(this.BaseURI+"user/disable2fa",
+    body,
+    { responseType: 'text' });
+  }
   //kiểm tra 2fa code khi login
   //-------------end 2fa code
 
@@ -132,10 +148,13 @@ export class UserService {
       private:[""]
     }
   )
+  token :string;
   postQuestion()
-  {
+  { 
+    var token=JSON.parse(this.cookieService.get('user')).token
+ 
     var body=
-    {
+    {  
        'QUESTION_TITLE':this.formQuestion.value.Title,
        'QUESTION_TAG':this.formQuestion.value.tag.toString(),
        'QUESTION_CATEGORY':this.formQuestion.value.Category,
@@ -143,8 +162,8 @@ export class UserService {
        'getNotication':this.formQuestion.value.getNotication,
        'type':this.formQuestion.value.private,
     }
-
-    return this.http.post(this.BaseURI+"user/ask",
+    console.log(this.BaseURI+"user/ask/"+token)
+    return this.http.post(this.BaseURI+"user/ask/"+token,
     body);
   
   }

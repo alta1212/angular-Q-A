@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v5.0": {
       "Tool/1.0.0": {
         "dependencies": {
+          "MODELS": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.6",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "5.0.5"
         },
@@ -139,7 +140,12 @@
           }
         }
       },
-      "System.Security.Cryptography.Cng/4.5.0": {}
+      "System.Security.Cryptography.Cng/4.5.0": {},
+      "MODELS/1.0.0": {
+        "runtime": {
+          "MODELS.dll": {}
+        }
+      }
     }
   },
   "libraries": {
@@ -238,6 +244,11 @@
       "sha512": "sha512-WG3r7EyjUe9CMPFSs6bty5doUqT+q9pbI80hlNzo2SkPkZ4VTuZkGWjpp77JB8+uaL4DFPRdBsAY+DX3dBK92A==",
       "path": "system.security.cryptography.cng/4.5.0",
       "hashPath": "system.security.cryptography.cng.4.5.0.nupkg.sha512"
+    },
+    "MODELS/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

@@ -27,5 +27,14 @@ namespace BUS
         {
            return userDAl.signUp(user);
         }
+        public bool enable2fa(string id)
+        {
+            return userDAl.enable2fa(id);
+        }
+
+        public bool disable2fa(string id)
+        {
+            return userDAl.disable2fa(id);
+        }
     }
 }

@@ -12,11 +12,13 @@ namespace DAL.Interface
         #region auth
         userModel login(userModel user);
         userModel signUp(userModel user);
+        bool enable2fa(string id);
        
         #endregion auth
         #region  ask
         questionModal ask(questionModal q);
-        
+        bool disable2fa(string id);
+
         #endregion  ask
     }
 }

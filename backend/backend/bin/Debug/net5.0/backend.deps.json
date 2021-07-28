@@ -755,6 +755,7 @@
       },
       "Tool/1.0.0": {
         "dependencies": {
+          "MODELS": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.6",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "5.0.5"
         },
