@@ -8,6 +8,8 @@ using System.Linq;
 
 namespace DAL
 {
+  
+
     public class systemDAL : DAL.Interface.iSystemDAL
     {
         IDatabaseHelper databaseHelper;
@@ -35,6 +37,16 @@ namespace DAL
             {
                 throw ex;
             }
+        }
+
+        public static Tuple<List<questionModal>,List<QUESTION_REPLY>> getDetailQuestion()
+        {
+                //list1= new List<int>();
+                // list2= new List<int>();
+                // ...
+
+                // return Tuple.Create(list1, list2)
+                return null;
         }
     }
 }

@@ -161,6 +161,10 @@ export class UserService {
        'QUESTION_DETAIL':this.formQuestion.value.Details,
        'getNotication':this.formQuestion.value.getNotication,
        'type':this.formQuestion.value.private,
+       'author_name':JSON.parse(this.cookieService.get('user')).useR_NAME,
+       'author_image':JSON.parse(this.cookieService.get('user')).useR_IMAGE
+      
+       //useR_NAME
     }
     console.log(this.BaseURI+"user/ask/"+token)
     return this.http.post(this.BaseURI+"user/ask/"+token,

@@ -167,11 +167,12 @@ namespace backend.Controllers
      //question
 
       [HttpPost]
-      [Route("/{token}")]
-      public questionModal ask (questionModal ques,string token)
+      [Route("ask/{token}")]
+      public object ask (questionModal ques,string token)
       {
+          double ms = Math.Round((DateTime.Now - DateTime.MinValue).TotalMilliseconds);
           ques.author=int.Parse(tool.decryption(token));
-          ques.SLUGS= helper.GenerateSlug(ques.QUESTION_TITLE);
+          ques.SLUGS= helper.GenerateSlug(ques.QUESTION_TITLE)+"-"+ms;
           return iuserBUS.ask(ques);
       }
 

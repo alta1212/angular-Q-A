@@ -51,7 +51,10 @@ CREATE TABLE QUESTION(--CÂU HỎI
     SLUGS NVARCHAR(500),
     getNotication nvarchar(10),
     type nvarchar(10),
-    author int
+    author int,
+    time NVARCHAR(50),
+    author_name NVARCHAR(50),
+    author_image NVARCHAR(50)
 )
 GO
 
@@ -69,7 +72,10 @@ CREATE TABLE QUESTION_REPLY(---TRẢ LỜI CÂU HỎI
     PIN INT,---NẾU GHIM CÂU TRẢ LỜI(CHỈ CHỦ CÂU HỎI MỚI CÓ THỂ GHIM)
     QUESTION_DETAIL NVARCHAR(1000),
     QUESTION_IMAGE NVARCHAR(100),
-    author int
+    author int,
+    time NVARCHAR(50),
+    author_name NVARCHAR(50),
+    author_image NVARCHAR(50)
 )
 GO
 CREATE TABLE COMMENT_REPLY(--COMMENT CÂU TRẢ LỜI
@@ -115,12 +121,14 @@ select * from category
 
 go
 
-create proc [dbo].[newQuestion]
+create  proc [dbo].[newQuestion]
 (@title nvarchar(50),
 @tag nvarchar(100),@category nvarchar(50)
 ,@detail nvarchar(1000),@slug nvarchar(100),
-@getNOtication nvarchar(5),@type nvarchar(5),
-@author nvarchar(10))
+@getNOtication nvarchar(2),@type nvarchar(2),
+@author  nvarchar(100),@author_name  nvarchar(100),
+@author_image  nvarchar(100)
+)
 as
 insert into QUESTION (QUESTION_TITLE,
 QUESTION_TAG,
@@ -129,10 +137,12 @@ QUESTION_DETAIL,
 SLUGS,
 type,
 getNotication,
-author
-) values (@title,@tag,@category,@detail,@slug,@type,@getNOtication,@author)
+author,
+author_image,author_name,
+time
+) values (@title,@tag,@category,@detail,@slug,@type,@getNOtication,@author,@author_image,@author_name, GETDATE())
+go
 
-GO
 
 
 
@@ -155,3 +165,78 @@ go
     where USER_ID=@id
 
     go
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---temp------------------------------------
+alter table QUESTION_REPLY
+add  author_image NVARCHAR(50)
+
+alter table QUESTION_REPLY
+add  author_name NVARCHAR(50)
+
+alter table QUESTION_REPLY
+add  time NVARCHAR(50)
+
+alter table QUESTION
+add  author_image NVARCHAR(50)
+
+alter table QUESTION
+add  author_name NVARCHAR(50)
+
+alter table QUESTION
+add  time NVARCHAR(50)
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[newQuestion]
+(@title nvarchar(50),
+@tag nvarchar(100),@category nvarchar(50)
+,@detail nvarchar(1000),@slug nvarchar(100),
+@getNOtication nvarchar(2),@type nvarchar(2),
+@author  nvarchar(100),@author_name  nvarchar(100),
+@author_image  nvarchar(100)
+)
+as
+insert into QUESTION (QUESTION_TITLE,
+QUESTION_TAG,
+QUESTION_CATEGORY,
+QUESTION_DETAIL,
+SLUGS,
+type,
+getNotication,
+author,
+author_image,author_name,
+time
+) values (@title,@tag,@category,@detail,@slug,@type,@getNOtication,@author,@author_image,@author_name, GETDATE())
+
+GO
+
+
+
+
+SELECT 
+   Q.*, A.* , A.QUESTION_ID , 
+   A.QUESTION_ID , A.author 
+FROM
+   QUESTION Q
+LEFT JOIN
+   QUESTION_REPLY A on A.QUESTION_ID = Q.question_id
+WHERE
+   Q.SLUGS = 'this-my-my-first-question'

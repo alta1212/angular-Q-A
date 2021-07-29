@@ -67,7 +67,7 @@ export class SettingComponent implements OnInit {
         {
           cuteAlert({
             type: "error",
-            title: "Error Title",
+            title: "Who TF are you?",
             message: "2fa Code invalid",
             buttonText: "Okay"
           })

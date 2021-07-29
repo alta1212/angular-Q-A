@@ -14,5 +14,8 @@ namespace MODELS
         public string SLUGS { get; set; }
         public string getNotication { get; set; }
         public string type { get; set; }
+        public string author_image { get; set; }
+        public string author_name { get; set; }
+        public string time { get; set; }
     }
 }

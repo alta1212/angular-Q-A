@@ -30,7 +30,9 @@ namespace DAL
                      "@slug",q.SLUGS,
                      "@getNOtication",q.getNotication,
                      "@type",q.type,
-                     "@author",q.author);
+                     "@author",q.author,
+                     "@author_image",q.author_image,
+                     "@author_name",q.author_name);
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
                 return q;
