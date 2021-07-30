@@ -67,15 +67,15 @@ CREATE TABLE VOTE(-----UP VÀ DOWN VOTE CHO REPLY QUESTION
 GO
 
 CREATE TABLE QUESTION_REPLY(---TRẢ LỜI CÂU HỎI
-    QUESTION_REPLY_ID INT IDENTITY(1,1) PRIMARY KEY,
-    QUESTION_ID INT,
+    answer_REPLY_ID INT IDENTITY(1,1) PRIMARY KEY,
+    answer_QUESTION_ID INT,
     PIN INT,---NẾU GHIM CÂU TRẢ LỜI(CHỈ CHỦ CÂU HỎI MỚI CÓ THỂ GHIM)
-    QUESTION_DETAIL NVARCHAR(1000),
-    QUESTION_IMAGE NVARCHAR(100),
-    author int,
-    time NVARCHAR(50),
-    author_name NVARCHAR(50),
-    author_image NVARCHAR(50)
+    answer_DETAIL NVARCHAR(1000),
+    answer_IMAGE NVARCHAR(100),
+    answer_author int,
+    answer_time NVARCHAR(50),
+    answer_author_name NVARCHAR(50),
+    answer_author_image NVARCHAR(50)
 )
 GO
 CREATE TABLE COMMENT_REPLY(--COMMENT CÂU TRẢ LỜI
@@ -169,6 +169,15 @@ go
 
 
 
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[getReply]
+(@id int)
+as
+select * from QUESTION_REPLY where answer_QUESTION_ID=@id
+GO
 
 
 

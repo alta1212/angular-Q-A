@@ -12,6 +12,8 @@ export class QuestionsDetailComponent implements OnInit {
   questionTitle; 
   questionBody;
   questionTag="";
+  time;
+  shareLink;
   constructor(private route: ActivatedRoute,private system:SystemService) { }
   private id ;
 
@@ -20,17 +22,19 @@ export class QuestionsDetailComponent implements OnInit {
       console.log(params) //log the entire params object
       console.log(params['id']) //log the value of id
       this.id=params['id'];
+      this.shareLink=window.location
     });
     this.system.getAllQuestionDetail(this.id).subscribe(
       (res:any) => {
          Object.keys(res).map(key => res[key]);
           console.log(res)
-          var tagList=res.questioN_TAG.split(",",);
+          var tagList=res.item1.questioN_TAG.split(",",);
           tagList.forEach(tag => {
             this.questionTag+='<a href="#" class="tag-link">'+tag+'</a>';
           });
-          this.questionBody=res.questioN_DETAIL;
-          this.questionTitle=res.questioN_TITLE;
+          this.questionBody=res.item1.questioN_DETAIL;
+          this.questionTitle=res.item1.questioN_TITLE;
+          this.time=res.item1.time;
       },
       err=>{
         console.log(err)

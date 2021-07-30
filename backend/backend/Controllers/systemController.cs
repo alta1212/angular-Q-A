@@ -30,10 +30,10 @@ namespace backend.Controllers
       }
         
       [HttpGet]
-      [Route("questionDetail/{id}")]
-      public questionModal Deatail(string id)
+      [Route("questionDetail/{slug}")]
+      public object Deatail(string slug)
       {
-          return isystemBUS.GetQuestiondetail(id);
+          return isystemBUS.getDetailQuestion(slug);
       }
     }
 }

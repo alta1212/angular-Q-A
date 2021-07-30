@@ -53,7 +53,7 @@
                                 <div class="meta d-flex flex-wrap align-items-center fs-13 lh-20 py-1">
                                     <div class="pr-3">
                                         <span>Asked</span>
-                                        <span class="text-black">1 hour ago</span>
+                                        <span class="text-black">{{time}}</span>
                                     </div>
                                     <div class="pr-3">
                                         <span class="pr-1">Active</span>
@@ -91,7 +91,7 @@
                                                 <h4 class="fs-15 pb-2">Share a link to this question</h4>
                                                 <form action="#" class="copy-to-clipboard">
                                                     <span class="text-success-message">Link Copied!</span>
-                                                    <input type="text" class="form-control form--control form-control-sm copy-input" value="https://disilab.com/q/66552850/15319675">
+                                                    <input type="text" class="form-control form--control form-control-sm copy-input" value="{{shareLink}}">
                                                     <div class="btn-box pt-2 d-flex align-items-center justify-content-between">
                                                         <a href="#" class="btn-text copy-btn">Copy link</a>
                                                         <ul class="social-icons social-icons-sm">
@@ -121,32 +121,13 @@
                                                 <span class="pr-2 d-inline-flex align-items-center"><span class="ball"></span>136</span>
                                             </div>
                                         </div>
-                                        <small class="meta d-block text-right">
+                                        <!-- <small class="meta d-block text-right">
                                             <span class="text-black d-block lh-18">asked</span>
                                             <span class="d-block lh-18 fs-12">6 hours ago</span>
-                                        </small>
+                                        </small> -->
                                     </div>
                                 </div><!-- end media -->
-                                <div class="media media-card user-media align-items-center">
-                                    <a href="user-profile.html" class="media-img d-block">
-                                        <img src="../../../assets/images/img4.jpg" alt="avatar">
-                                    </a>
-                                    <div class="media-body d-flex flex-wrap align-items-center justify-content-between">
-                                        <div>
-                                            <h5 class="pb-1"><a href="user-profile.html">Kevin Martin</a></h5>
-                                            <div class="stats fs-12 d-flex align-items-center lh-18">
-                                                <span class="text-black pr-2">6,514</span>
-                                                <span class="pr-2 d-inline-flex align-items-center"><span class="ball gold"></span>3</span>
-                                                <span class="pr-2 d-inline-flex align-items-center"><span class="ball silver"></span>35</span>
-                                                <span class="pr-2 d-inline-flex align-items-center"><span class="ball"></span>48</span>
-                                            </div>
-                                        </div>
-                                        <a href="revisions.html" class="meta d-block text-right fs-13 text-color">
-                                            <span class="d-block lh-18">edited</span>
-                                            <span class="d-block lh-18 fs-12">6 hours ago</span>
-                                        </a>
-                                    </div>
-                                </div><!-- end media -->
+                             
                             </div><!-- end question-post-user-action -->
                             <div class="comments-wrap">
                                 <ul class="comments-list">

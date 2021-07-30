@@ -28,8 +28,9 @@ namespace DAL
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
                       if(dt.Rows.Count>0)
-                    {  
-                        return dt.ConvertTo<questionModal>().FirstOrDefault();
+                    { 
+                        var data=dt.ConvertTo<questionModal>().FirstOrDefault();
+                        return data;
                     }
                      return null;
             }
@@ -39,14 +40,33 @@ namespace DAL
             }
         }
 
-        public static Tuple<List<questionModal>,List<QUESTION_REPLY>> getDetailQuestion()
+        public  Tuple<questionModal,List <QUESTION_REPLY>> getDetailQuestion(string slug)
         {
-                //list1= new List<int>();
-                // list2= new List<int>();
-                // ...
-
-                // return Tuple.Create(list1, list2)
-                return null;
+            string msgError = "";
+            try
+            {
+                var dt = databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "QuestionDetail",
+                     "@slug", slug
+                     );
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                      if(dt.Rows.Count>0)
+                        { 
+                            
+                            var question=dt.ConvertTo<questionModal>().FirstOrDefault();
+                            var rep = databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "getReply",
+                                "@id", question.QUESTION_ID
+                                );
+                            var reply=rep.ConvertTo<QUESTION_REPLY>().ToList();
+                            return Tuple.Create(question,reply);
+                        }
+                     return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+               
         }
     }
 }
