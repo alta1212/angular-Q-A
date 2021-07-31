@@ -154,7 +154,16 @@
           "lib/net50/MimeKit.dll": {}
         }
       },
-      "Newtonsoft.Json/12.0.2": {
+      "NaCl.Net/0.1.13": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/NaCl.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/NaCl.dll": {}
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
@@ -182,6 +191,19 @@
         },
         "runtime": {
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
+        }
+      },
+      "PusherServer/4.6.1": {
+        "type": "package",
+        "dependencies": {
+          "NaCl.Net": "0.1.13",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/PusherServer.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/PusherServer.dll": {}
         }
       },
       "RestSharp/106.12.0": {
@@ -572,10 +594,31 @@
         "mimekit.nuspec"
       ]
     },
-    "Newtonsoft.Json/12.0.2": {
-      "sha512": "rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
+    "NaCl.Net/0.1.13": {
+      "sha512": "AVg1455RQnyTy6tiessudruZHvbl70QWRPyx3og2I1Fei17LDNc7Z3DRgqN2+PsySBui/1EDP4A7adhQXydi6g==",
       "type": "package",
-      "path": "newtonsoft.json/12.0.2",
+      "path": "nacl.net/0.1.13",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/NaCl.dll",
+        "lib/net45/NaCl.xml",
+        "lib/net472/NaCl.dll",
+        "lib/net472/NaCl.xml",
+        "lib/netstandard1.3/NaCl.dll",
+        "lib/netstandard1.3/NaCl.xml",
+        "lib/netstandard2.0/NaCl.dll",
+        "lib/netstandard2.0/NaCl.xml",
+        "lib/netstandard2.1/NaCl.dll",
+        "lib/netstandard2.1/NaCl.xml",
+        "nacl.net.0.1.13.nupkg.sha512",
+        "nacl.net.nuspec"
+      ]
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "type": "package",
+      "path": "newtonsoft.json/12.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -598,8 +641,9 @@
         "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.12.0.2.nupkg.sha512",
-        "newtonsoft.json.nuspec"
+        "newtonsoft.json.12.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
       ]
     },
     "Newtonsoft.Json.Bson/1.0.2": {
@@ -636,6 +680,25 @@
         "lib/netstandard2.0/BouncyCastle.Crypto.xml",
         "portable.bouncycastle.1.8.10.nupkg.sha512",
         "portable.bouncycastle.nuspec"
+      ]
+    },
+    "PusherServer/4.6.1": {
+      "sha512": "3YUWmFAj5szTwxXmPXXMuaH7uO0OSt1CgqCbEIDERDxGPRw323U+vv+1nALvFaVPxAOS0TSYhTBCL9Ns+i/w8g==",
+      "type": "package",
+      "path": "pusherserver/4.6.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGELOG.md",
+        "PusherServer.public.snk",
+        "README.md",
+        "icon-128.png",
+        "lib/net45/PusherServer.dll",
+        "lib/net472/PusherServer.dll",
+        "lib/netstandard1.3/PusherServer.dll",
+        "lib/netstandard2.0/PusherServer.dll",
+        "pusherserver.4.6.1.nupkg.sha512",
+        "pusherserver.nuspec"
       ]
     },
     "RestSharp/106.12.0": {
@@ -955,6 +1018,7 @@
       "MailKit >= 2.14.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.6",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 5.0.5",
+      "PusherServer >= 4.6.1",
       "RestSharp >= 106.12.0"
     ]
   },
@@ -1010,6 +1074,10 @@
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
             "target": "Package",
             "version": "[5.0.5, )"
+          },
+          "PusherServer": {
+            "target": "Package",
+            "version": "[4.6.1, )"
           },
           "RestSharp": {
             "target": "Package",

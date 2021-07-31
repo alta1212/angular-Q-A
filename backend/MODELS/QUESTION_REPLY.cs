@@ -11,5 +11,6 @@ namespace MODELS
         public string answer_time {get;set;}
         public string answer_author_name {get;set;}
         public string  answer_author_image {get;set;}
+        public string token  {get;set;}
     }
 }

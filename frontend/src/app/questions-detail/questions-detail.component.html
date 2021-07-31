@@ -71,7 +71,7 @@
                     </div><!-- end question-highlight -->
                     <div class="question d-flex">
                         <div class="votes votes-styled w-auto">
-                            <div id="vote" class="upvotejs">
+                            <div  class="upvotejs votetag">
                                 <a class="upvote upvote-on" data-toggle="tooltip" data-placement="right" title="This question is useful"></a>
                                 <span class="count">1</span>
                                 <a class="downvote" data-toggle="tooltip" data-placement="right" title="This question is not useful"></a>
@@ -121,10 +121,10 @@
                                                 <span class="pr-2 d-inline-flex align-items-center"><span class="ball"></span>136</span>
                                             </div>
                                         </div>
-                                        <!-- <small class="meta d-block text-right">
+                                         <small class="meta d-block text-right">
                                             <span class="text-black d-block lh-18">asked</span>
                                             <span class="d-block lh-18 fs-12">6 hours ago</span>
-                                        </small> -->
+                                        </small> 
                                     </div>
                                 </div><!-- end media -->
                              
@@ -262,7 +262,7 @@
                     </div><!-- end question -->
                     <div class="subheader d-flex align-items-center justify-content-between">
                         <div class="subheader-title">
-                            <h3 class="fs-16">1 Answer</h3>
+                            <h3 class="fs-16">{{reply.length}} Answer</h3>
                         </div><!-- end subheader-title -->
                         <div class="subheader-actions d-flex align-items-center lh-1">
                             <label class="fs-13 fw-regular mr-1 mb-0">Order by</label>
@@ -275,9 +275,9 @@
                             </div>
                         </div><!-- end subheader-actions -->
                     </div><!-- end subheader -->
-                    <div class="answer-wrap d-flex">
+                    <div *ngFor="let rep of reply"  class="answer-wrap d-flex">
                         <div class="votes votes-styled w-auto">
-                            <div id="vote2" class="upvotejs">
+                            <div class="upvotejs">
                                 <a class="upvote upvote-on" data-toggle="tooltip" data-placement="right" title="This question is useful"></a>
                                 <span class="count">2</span>
                                 <a class="downvote" data-toggle="tooltip" data-placement="right" title="This question is not useful"></a>
@@ -285,36 +285,9 @@
                             </div>
                         </div><!-- end votes -->
                         <div class="answer-body-wrap flex-grow-1">
-                            <div class="answer-body">
-                                <p>Since you're using an <code class="code">arrow-function</code>, <code class="code">this</code> does not refer to the <code class="code">button</code>:</p>
-                                <pre class="code-block custom-scrollbar-styled">
-<code>$(<span class="code-string">"#size-click"</span>).click(<span class="code-function"><span class="code-keyword">function</span>() </span>
-  <span class="code-keyword">var</span> prodId = $(<span class="code-built-in">this</span>).attr(<span class="code-string">"data-productId"</span>);
-  <span class="code-built-in">console</span>.log(<span class="code-string">'this is prodId'</span>);
-  <span class="code-built-in">console</span>.log(prodId);
-);</code></pre>
-                                <pre class="code-block custom-scrollbar-styled"><code><span class="code-tag">&lt;<span class="code-name">script</span> <span class="code-attr">src</span>=<span class="code-string">"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"</span>&gt;</span><span class="code-tag">&lt;/<span class="code-name">script</span>&gt;</span>
-
-<span class="code-tag">&lt;<span class="code-name">button</span>
-  <span class="code-attr">class</span>=<span class="code-string">"btn btn-solid navigate"</span>
-  <span class="code-attr">value</span>=<span class="code-string">"2"</span>
-  <span class="code-attr">data-productId</span>=<span class="code-string">"1"</span>
-  <span class="code-attr">id</span>=<span class="code-string">"size-click"</span>
-&gt;</span>Next<span class="code-tag">&lt;/<span class="code-name">button</span>&gt;</span></code></pre>
-                                <p>If you still want to use it, you can use the <code class="code">event</code> passed to the function:</p>
-                                <pre class="code-block custom-scrollbar-styled"><code>$(<span class="code-string">"#size-click"</span>).click(<span class="code-function"><span class="code-params">e</span> =&gt;</span> 
-  <span class="code-keyword">var</span> prodId = $(e.currentTarget).attr(<span class="code-string">"data-productId"</span>);
-  <span class="code-built-in">console</span>.log(<span class="code-string">'this is prodId'</span>);
-  <span class="code-built-in">console</span>.log(prodId);
-);</code></pre>
-                                <pre class="code-block custom-scrollbar-styled"><code><span class="code-tag">&lt;<span class="code-name">script</span> <span class="code-attr">src</span>=<span class="code-string">"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"</span>&gt;</span><span class="code-tag">&lt;/<span class="code-name">script</span>&gt;</span>
-
-<span class="code-tag">&lt;<span class="code-name">button</span>
-  <span class="code-attr">class</span>=<span class="code-string">"btn btn-solid navigate"</span>
-  <span class="code-attr">value</span>=<span class="code-string">"2"</span>
-  <span class="code-attr">data-productId</span>=<span class="code-string">"1"</span>
-  <span class="code-attr">id</span>=<span class="code-string">"size-click"</span>
-&gt;</span>Next<span class="code-tag">&lt;/<span class="code-name">button</span>&gt;</span></code></pre>
+                            <div  [innerHTML]="rep.answer_DETAIL" class="answer-body">
+                               
+                             
                             </div><!-- end answer-body -->
                             <div class="question-post-user-action">
                                 <div class="post-menu">
@@ -451,30 +424,25 @@
                                     </div><!-- end collapse -->
                                 </div>
                             </div><!-- end comments-wrap -->
-                        </div><!-- end answer-body-wrap -->
+                            
+                        </div><!-- end answer-body-wrap -->  
                     </div><!-- end answer-wrap -->
+                   
                     <div class="subheader">
                         <div class="subheader-title">
                             <h3 class="fs-16">Your Answer</h3>
                         </div><!-- end subheader-title -->
                     </div><!-- end subheader -->
                     <div class="post-form">
-                        <form method="post" class="pt-3">
+                       
+                        <form [formGroup]="service.formReply" (submit)="postAnswerSubmit()" class="pt-3">
                             <div class="input-box">
                                 <label class="fs-14 text-black lh-20 fw-medium">Body</label>
                                 <div class="form-group">
-                                    <textarea class="form-control form--control form-control-sm fs-13 user-text-editor" name="message" rows="6" placeholder="Your answer here...">Your answer here...</textarea>
+                                    <ckeditor  formControlName="answer_DETAIL" [editor]="Editor" [config]="ckConfig"></ckeditor> 
                                 </div>
                             </div>
-                            <div class="input-box">
-                                <label class="fs-14 text-black fw-medium">Image</label>
-                                <div class="form-group">
-                                    <div class="file-upload-wrap file-upload-layout-2">
-                                        <input type="file" name="files[]" class="file-upload-input" multiple>
-                                        <span class="file-upload-text d-flex align-items-center justify-content-center"><i class="la la-cloud-upload mr-2 fs-24"></i>Drop files here or click to upload.</span>
-                                    </div>
-                                </div>
-                            </div><!-- end input-box -->
+                          
                             <button class="btn theme-btn theme-btn-sm" type="submit">Post Your Answer</button>
                         </form>
                     </div>

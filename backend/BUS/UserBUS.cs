@@ -36,5 +36,10 @@ namespace BUS
         {
             return userDAl.disable2fa(id);
         }
+
+        public QUESTION_REPLY REPLY(QUESTION_REPLY qUESTION_REPLY)
+        {
+            return userDAl.REPLY(qUESTION_REPLY);
+        }
     }
 }

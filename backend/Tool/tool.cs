@@ -8,7 +8,7 @@ using MimeKit;
 using System.Collections.Generic;
 
 using Microsoft.AspNetCore.Mvc;
-
+using PusherServer;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 
@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;
 using MODELS;
 using Microsoft.AspNetCore.Http;
+using System.Threading.Tasks;
 
 namespace Tool
 {
@@ -81,6 +82,28 @@ namespace Tool
               string decode="ZTllZDY3Mzk3YjliMzk3MzU1NzAyNzBmMmY3NGRiZDQtYTBjZmI5NTctOTc2MDI0MGE=";
                 var base64EncodedBytes = System.Convert.FromBase64String(decode);
                 return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+        }
+        
+       
+        
+        public async Task<ActionResult> webSocket(QUESTION_REPLY obj,string Event) {
+             var options = new PusherOptions
+            {
+            Cluster = "ap3",
+            Encrypted = true
+            };
+             string chanel =decryption(obj.token);
+             var pusher = new Pusher(
+            "1243189",
+            "609d6dc690cd8764da77",
+            "075b8571e139675b39eb",
+            options);
+            var result = await pusher.TriggerAsync(
+            chanel,
+            Event,
+            new { message = obj} );
+
+            return null;
         }
     }
 }

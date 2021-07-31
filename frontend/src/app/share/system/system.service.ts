@@ -4,6 +4,8 @@ import { HttpClient } from "@angular/common/http";
 import { CanActivate,Router } from '@angular/router';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { CookieService } from 'ngx-cookie-service';
+import * as code from "../ckeditor/build/ckEditor";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,4 +26,30 @@ export class SystemService {
    
     return this.http.get(this.BaseURI+"system/questionDetail/"+id,{responseType: 'json'});
   }
+
+
+  ckConfig={
+    toolbar: [ 'heading', 
+    "Autoformat",
+    "BlockQuote",
+    "Bold",
+    "Code",
+    "CodeBlock",
+    "Essentials",
+    "Indent",
+    "Italic",
+    "Link",
+    "List",
+    "MediaEmbed",
+    "Paragraph",
+    "PasteFromOffice",
+    "Table",
+    "TableToolbar",
+    "TextTransformation" ],
+   
+    // This value must be kept in sync with the language defined in webpack.config.js.
+    language: 'vi'
+}
+  public Editor = code;
+
 }

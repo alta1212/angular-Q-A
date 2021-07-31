@@ -136,7 +136,7 @@ export class UserService {
    //   window.location.href = '/signin';
       return false;
   }
-
+  //ask
   formQuestion=this.fb.group(
     {
       tag:[""],
@@ -171,4 +171,34 @@ export class UserService {
     body);
   
   }
+  //end ask
+  //reply
+  formReply=this.fb.group(
+    {
+      answer_QUESTION_ID:["",[Validators.required]],
+      answer_DETAIL:["<p>Write your answer here!</p>",[Validators.required,Validators.minLength(10)]],
+      answer_author :[""],
+      answer_author_name:[""],
+      answer_author_image :[""],
+      token:[JSON.parse(this.cookieService.get('user')).token,[Validators.required]],
+    }
+  )
+  postAnswer()
+  { 
+
+    var body=
+    {  
+       'answer_DETAIL':this.formReply.value.answer_DETAIL,
+       'answer_author_name':JSON.parse(this.cookieService.get('user')).useR_NAME,
+       'answer_author_image':JSON.parse(this.cookieService.get('user')).useR_IMAGE,
+       'answer_QUESTION_ID':this.formReply.value.answer_QUESTION_ID,
+       'token':this.formReply.value.token,
+       //useR_NAME
+    }
+   
+    return this.http.post(this.BaseURI+"user/answer/",
+    body);
+  
+  }
+  //end reply
 }

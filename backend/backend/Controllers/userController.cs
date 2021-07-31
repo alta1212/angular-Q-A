@@ -180,6 +180,16 @@ namespace backend.Controllers
 
       
       #endregion question
+
+      #region answer
+      [HttpPost]
+      [Route("answer")]
+      public QUESTION_REPLY REPLY(QUESTION_REPLY qUESTION_REPLY)
+      {
+         System.Threading.Tasks.Task<ActionResult> task = tool.webSocket( qUESTION_REPLY,"notification");
+        return iuserBUS.REPLY(qUESTION_REPLY);
+      }
+      #endregion answer
     }
     
 }

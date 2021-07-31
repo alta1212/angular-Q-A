@@ -12,6 +12,7 @@
           "MailKit": "2.14.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.6",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "5.0.5",
+          "PusherServer": "4.6.1",
           "RestSharp": "106.12.0"
         },
         "runtime": {
@@ -43,7 +44,7 @@
       "Microsoft.AspNetCore.JsonPatch/5.0.5": {
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
-          "Newtonsoft.Json": "12.0.2"
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.dll": {
@@ -55,7 +56,7 @@
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson/5.0.5": {
         "dependencies": {
           "Microsoft.AspNetCore.JsonPatch": "5.0.5",
-          "Newtonsoft.Json": "12.0.2",
+          "Newtonsoft.Json": "12.0.3",
           "Newtonsoft.Json.Bson": "1.0.2"
         },
         "runtime": {
@@ -138,17 +139,25 @@
           }
         }
       },
-      "Newtonsoft.Json/12.0.2": {
+      "NaCl.Net/0.1.13": {
+        "runtime": {
+          "lib/netstandard2.1/NaCl.dll": {
+            "assemblyVersion": "0.1.13.0",
+            "fileVersion": "0.1.13.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "12.0.0.0",
-            "fileVersion": "12.0.2.23222"
+            "fileVersion": "12.0.3.23909"
           }
         }
       },
       "Newtonsoft.Json.Bson/1.0.2": {
         "dependencies": {
-          "Newtonsoft.Json": "12.0.2"
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
@@ -162,6 +171,18 @@
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
             "assemblyVersion": "1.8.10.0",
             "fileVersion": "1.8.10.1"
+          }
+        }
+      },
+      "PusherServer/4.6.1": {
+        "dependencies": {
+          "NaCl.Net": "0.1.13",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/PusherServer.dll": {
+            "assemblyVersion": "4.6.1.0",
+            "fileVersion": "4.6.1.0"
           }
         }
       },
@@ -295,12 +316,19 @@
       "path": "mimekit/2.14.0",
       "hashPath": "mimekit.2.14.0.nupkg.sha512"
     },
-    "Newtonsoft.Json/12.0.2": {
+    "NaCl.Net/0.1.13": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
-      "path": "newtonsoft.json/12.0.2",
-      "hashPath": "newtonsoft.json.12.0.2.nupkg.sha512"
+      "sha512": "sha512-AVg1455RQnyTy6tiessudruZHvbl70QWRPyx3og2I1Fei17LDNc7Z3DRgqN2+PsySBui/1EDP4A7adhQXydi6g==",
+      "path": "nacl.net/0.1.13",
+      "hashPath": "nacl.net.0.1.13.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
     },
     "Newtonsoft.Json.Bson/1.0.2": {
       "type": "package",
@@ -315,6 +343,13 @@
       "sha512": "sha512-XLhjNAwuVB9ynwn11l5K44eyozh8q6gFseTrlnLNttejimglX7+F9+vxh60LPjvA/DAt6fUdS43N3ah8K6eaWg==",
       "path": "portable.bouncycastle/1.8.10",
       "hashPath": "portable.bouncycastle.1.8.10.nupkg.sha512"
+    },
+    "PusherServer/4.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3YUWmFAj5szTwxXmPXXMuaH7uO0OSt1CgqCbEIDERDxGPRw323U+vv+1nALvFaVPxAOS0TSYhTBCL9Ns+i/w8g==",
+      "path": "pusherserver/4.6.1",
+      "hashPath": "pusherserver.4.6.1.nupkg.sha512"
     },
     "RestSharp/106.12.0": {
       "type": "package",

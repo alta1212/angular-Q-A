@@ -127,5 +127,29 @@ namespace DAL
             }
         }
         #endregion auth
+
+        #region answer
+        public QUESTION_REPLY REPLY(QUESTION_REPLY qUESTION_REPLY)
+        {
+             string msgError = "";
+            try
+            {
+                var dt = databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "answer",
+                     "@answer_QUESTION_ID", qUESTION_REPLY.answer_QUESTION_ID,
+                     "@detail", qUESTION_REPLY.answer_DETAIL,
+                     "@author_name", qUESTION_REPLY.answer_author_name,
+                     "@author_image",qUESTION_REPLY.answer_author_image,
+                     "@author",qUESTION_REPLY.answer_author
+                     );
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                return dt.ConvertTo<QUESTION_REPLY>().FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion answer
     }
 }

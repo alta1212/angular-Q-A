@@ -20,5 +20,8 @@ namespace DAL.Interface
         bool disable2fa(string id);
 
         #endregion  ask
+        #region  answer
+        QUESTION_REPLY REPLY(QUESTION_REPLY qUESTION_REPLY);
+        #endregion answer
     }
 }

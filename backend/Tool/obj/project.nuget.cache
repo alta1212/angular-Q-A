@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/9g5Tg9T8e7pJZfaZEaNn+16igUA06GrcFVRT8ksYSipqCE9XILnksOl4nqqjIoKkL2XhEOWANDssGD4CCF7TQ==",
+  "dgSpecHash": "X9ZjMkW6cCQnrPzRv7ktmSoJBqGe8RYTZf+FqzrsQFFqxMZSmCmTTxMIKWpu+EBdNfgW/rmdFpjYg/0/lE7OYA==",
   "success": true,
   "projectFilePath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\Tool\\Tool.csproj",
   "expectedPackageFiles": [
@@ -16,9 +16,11 @@
     "C:\\Users\\tuan anh\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.7.1\\microsoft.identitymodel.tokens.6.7.1.nupkg.sha512",
     "C:\\Users\\tuan anh\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
     "C:\\Users\\tuan anh\\.nuget\\packages\\mimekit\\2.14.0\\mimekit.2.14.0.nupkg.sha512",
-    "C:\\Users\\tuan anh\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\tuan anh\\.nuget\\packages\\nacl.net\\0.1.13\\nacl.net.0.1.13.nupkg.sha512",
+    "C:\\Users\\tuan anh\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\tuan anh\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\tuan anh\\.nuget\\packages\\portable.bouncycastle\\1.8.10\\portable.bouncycastle.1.8.10.nupkg.sha512",
+    "C:\\Users\\tuan anh\\.nuget\\packages\\pusherserver\\4.6.1\\pusherserver.4.6.1.nupkg.sha512",
     "C:\\Users\\tuan anh\\.nuget\\packages\\restsharp\\106.12.0\\restsharp.106.12.0.nupkg.sha512",
     "C:\\Users\\tuan anh\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\tuan anh\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.7.1\\system.identitymodel.tokens.jwt.6.7.1.nupkg.sha512",

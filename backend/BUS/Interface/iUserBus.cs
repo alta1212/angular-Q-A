@@ -18,5 +18,8 @@ namespace BUS.Interface
         questionModal ask(questionModal q);
        
         #endregion question
+        #region  answer
+        QUESTION_REPLY REPLY(QUESTION_REPLY qUESTION_REPLY);
+        #endregion answer
     }
 }
