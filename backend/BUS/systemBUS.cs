@@ -12,10 +12,7 @@ namespace BUS
         {
             systemDAl=k;
         }
-        public questionModal GetQuestiondetail(string id)
-        {
-           return systemDAl.getDetail(id);
-        }
+     
         public Tuple<questionModal,List <QUESTION_REPLY>> getDetailQuestion(string slug)
         {
             return systemDAl.getDetailQuestion(slug);

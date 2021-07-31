@@ -4,6 +4,7 @@ namespace MODELS
     {
         public int  answer_REPLY_ID {get;set;}
         public int  answer_QUESTION_ID {get;set;}
+        public int author_QUESTION_ID {get;set;}
         public int  PIN  {get;set;}
         public string answer_DETAIL {get;set;}
         public string answer_IMAGE {get;set;}

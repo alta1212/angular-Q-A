@@ -15,19 +15,19 @@ export class AccountBarComponent implements OnInit {
   log:boolean;
   ngOnInit(): void {
 
-    this.pusherService.channel.bind(String(JSON.parse(this.cookieService.get('user')).useR_ID), data => {
-      console.log(data.message.answer_author_name);
-      cuteToast({
-        type: "info",
-        message: data.message.answer_author_name + " Reply on your question ",
-        timer: 5000
-      });
-    });
+   
     this.log= this.service.checkLogin();
     if(this.log)
     {
       this.user_name=JSON.parse(this.cookieService.get('user')).useR_NAME;
-      
+      this.pusherService.channel.bind(String(JSON.parse(this.cookieService.get('user')).useR_ID), data => {
+        console.log(data.message.answer_author_name);
+        cuteToast({
+          type: "info",
+          message: data.message.answer_author_name + " Reply on your question ",
+          timer: 5000
+        });
+      });
     }
   }
   logout()

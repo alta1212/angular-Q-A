@@ -180,7 +180,8 @@ export class UserService {
       answer_author :[""],
       answer_author_name:[""],
       answer_author_image :[""],
-      token:[JSON.parse(this.cookieService.get('user')).token,[Validators.required]],
+      token:["",[Validators.required]],
+      author_QUESTION_ID:["",[Validators.required]]
     }
   )
   postAnswer()
@@ -193,6 +194,7 @@ export class UserService {
        'answer_author_image':JSON.parse(this.cookieService.get('user')).useR_IMAGE,
        'answer_QUESTION_ID':this.formReply.value.answer_QUESTION_ID,
        'token':this.formReply.value.token,
+       'author_QUESTION_ID':this.formReply.value.author_QUESTION_ID,
        //useR_NAME
     }
    

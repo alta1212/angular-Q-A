@@ -100,7 +100,7 @@ namespace Tool
             options);
             var result = await pusher.TriggerAsync(
             chanel,
-            Event,
+            obj.author_QUESTION_ID.ToString(),
             new { message = obj } );
 
             return null;
