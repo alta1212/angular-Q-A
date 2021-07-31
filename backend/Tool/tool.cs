@@ -92,7 +92,7 @@ namespace Tool
             Cluster = "ap3",
             Encrypted = true
             };
-             string chanel =decryption(obj.token);
+             string chanel ="notification";
              var pusher = new Pusher(
             "1243189",
             "609d6dc690cd8764da77",
@@ -101,7 +101,7 @@ namespace Tool
             var result = await pusher.TriggerAsync(
             chanel,
             Event,
-            new { message = obj} );
+            new { message = obj } );
 
             return null;
         }
