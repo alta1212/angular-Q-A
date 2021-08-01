@@ -19,7 +19,7 @@ namespace DAL
         }
    
 
-        public  Tuple<questionModal,List <QUESTION_REPLY>> getDetailQuestion(string slug)
+        public  Tuple<questionModal,List <QUESTION_REPLY>,List <Comment>> getDetailQuestion(string slug)
         {
             string msgError = "";
           
@@ -37,7 +37,11 @@ namespace DAL
                                 );
                                
                                     var reply=rep.ConvertTo<QUESTION_REPLY>().ToList();
-                                    return Tuple.Create(question,reply);
+                            var Comment = databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "getComment",
+                                "@id", question.QUESTION_ID
+                                );
+                                var CommentList=Comment.ConvertTo<Comment>().ToList();
+                                    return Tuple.Create(question,reply,CommentList);
                                 
                         }
                      return null;

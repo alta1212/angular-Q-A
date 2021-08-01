@@ -78,11 +78,15 @@ CREATE TABLE QUESTION_REPLY(---TRẢ LỜI CÂU HỎI
     answer_author_image NVARCHAR(50)
 )
 GO
-CREATE TABLE COMMENT_REPLY(--COMMENT CÂU TRẢ LỜI
+CREATE   TABLE COMMENT_REPLY(--COMMENT CÂU TRẢ LỜI
     COMMENT_REPLY_ID INT IDENTITY(1,1) PRIMARY KEY,
-    QUESTION_REPLY_ID INT,--NẾU BÌNH LUẬN CÂU HỎI
+    answer_REPLY_ID INT,--NẾU BÌNH LUẬN CÂU HỎI
     QUESTION_ID INT,--NẾU BÌNH LUẬN CÂU TRL
-    COMMENT_DETAIL NVARCHAR(1000)
+    COMMENT_DETAIL NVARCHAR(1000),
+    COMMENT_author int,
+    COMMENT_time NVARCHAR(50),
+    COMMENT_author_name NVARCHAR(50),
+    COMMENT_author_image NVARCHAR(50)
 )
 GO
 CREATE TABLE NOTICATION(
@@ -183,69 +187,81 @@ GO
 
 
 
-
-
-
-
-
-
-
----temp------------------------------------
-alter table QUESTION_REPLY
-add  author_image NVARCHAR(50)
-
-alter table QUESTION_REPLY
-add  author_name NVARCHAR(50)
-
-alter table QUESTION_REPLY
-add  time NVARCHAR(50)
-
-alter table QUESTION
-add  author_image NVARCHAR(50)
-
-alter table QUESTION
-add  author_name NVARCHAR(50)
-
-alter table QUESTION
-add  time NVARCHAR(50)
-
-
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-ALTER proc [dbo].[newQuestion]
-(@title nvarchar(50),
-@tag nvarchar(100),@category nvarchar(50)
-,@detail nvarchar(1000),@slug nvarchar(100),
-@getNOtication nvarchar(2),@type nvarchar(2),
-@author  nvarchar(100),@author_name  nvarchar(100),
-@author_image  nvarchar(100)
+create proc answer(@answer_QUESTION_ID nvarchar(10),
+@detail nvarchar (MAX),@author_name nvarchar(50),
+@author_image NVARCHAR(400) null,
+@author NVARCHAR(4)
 )
-as
-insert into QUESTION (QUESTION_TITLE,
-QUESTION_TAG,
-QUESTION_CATEGORY,
-QUESTION_DETAIL,
-SLUGS,
-type,
-getNotication,
-author,
-author_image,author_name,
-time
-) values (@title,@tag,@category,@detail,@slug,@type,@getNOtication,@author,@author_image,@author_name, GETDATE())
+AS
+INSERT into QUESTION_REPLY (
+answer_QUESTION_ID,
+answer_DETAIL,
+answer_author,
+answer_author_name,
+answer_author_image,
+answer_time) VALUES(
+    @answer_QUESTION_ID,
+    @detail,
+    @author_image,
+    @author,
+    @author_name,
+    getdate()
+    )
+
+
+go
+
+create proc getComment(@id int)
+
+as SELECT * from COMMENT_REPLY where QUESTION_ID=@id
+go
+---temp------------------------------------
+
+create proc answer(@answer_QUESTION_ID nvarchar(10),
+@detail nvarchar  (max),@author_name nvarchar(50),
+@author_image NVARCHAR(400) null,
+@author NVARCHAR(4)
+)
+AS
+INSERT into QUESTION_REPLY (
+answer_QUESTION_ID,
+answer_DETAIL,
+answer_author,
+answer_author_name,
+answer_author_image,
+answer_time) VALUES(
+    @answer_QUESTION_ID,
+    @detail,
+    @author_image,
+    @author,
+    @author_name,
+    getdate()
+    )
+
+
+go
+
+delete from QUESTION_REPLY
+
+
 
 GO
+CREATE  TABLE COMMENT_REPLY(--COMMENT CÂU TRẢ LỜI
+    COMMENT_REPLY_ID INT IDENTITY(1,1) PRIMARY KEY,
+    answer_REPLY_ID INT,--NẾU BÌNH LUẬN CÂU HỎI
+    QUESTION_ID INT,--NẾU BÌNH LUẬN CÂU TRL
+    COMMENT_DETAIL NVARCHAR(1000),
+    COMMENT_author int,
+    COMMENT_time NVARCHAR(50),
+    COMMENT_author_name NVARCHAR(50),
+    COMMENT_author_image NVARCHAR(50)
+)
+GO
+create proc getComment(@id int)
 
+as SELECT * from COMMENT_REPLY where QUESTION_ID=@id
+go
+exec getComment 2017
+update QUESTION set time =convert(varchar, getdate(), 20)
 
-
-
-SELECT 
-   Q.*, A.* , A.QUESTION_ID , 
-   A.QUESTION_ID , A.author 
-FROM
-   QUESTION Q
-LEFT JOIN
-   QUESTION_REPLY A on A.QUESTION_ID = Q.question_id
-WHERE
-   Q.SLUGS = 'this-my-my-first-question'
+insert into COMMENT_REPLY(answer_REPLY_ID,QUESTION_ID,COMMENT_DETAIL,COMMENT_time) VALUES(1010,2017,'coádasdasd22t',convert(varchar, getdate(), 20))

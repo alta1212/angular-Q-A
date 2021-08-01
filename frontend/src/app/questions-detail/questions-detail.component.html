@@ -52,8 +52,8 @@
                                 <h5 class="fs-20"><a href="question-details.html">{{questionTitle}}</a></h5>
                                 <div class="meta d-flex flex-wrap align-items-center fs-13 lh-20 py-1">
                                     <div class="pr-3">
-                                        <span>Asked</span>
-                                        <span class="text-black">{{time}}</span>
+                                        <span>Asked </span>
+                                        <span class="text-black">{{angularDayjsService.timeAgo(time)}}</span>
                                     </div>
                                     <div class="pr-3">
                                         <span class="pr-1">Active</span>
@@ -344,17 +344,17 @@
                                 </div><!-- end media -->
                             </div><!-- end question-post-user-action -->
                             <div class="comments-wrap">
-                                <ul class="comments-list">
+                                <ul *ngFor="let comment of rep.listComent ; let i = index" class="comments-list">
                                     <li>
                                         <div class="comment-actions">
-                                            <span class="comment-score">1</span>
+                                            <span class="comment-score">{{i+1}}</span>
                                         </div>
                                         <div class="comment-body">
-                                            <span class="comment-copy">Ah excellent! Thank you!</span>
+                                            <span class="comment-copy">{{ comment.commenT_DETAIL}}</span>
                                             <span class="comment-separated">-</span>
                                             <a href="user-profile.html" class="comment-user owner" title="224,110 reputation">Arden Smith</a>
                                             <span class="comment-separated">-</span>
-                                            <a href="#" class="comment-date">8 hours ago</a>
+                                            <a href="#" class="comment-date">{{angularDayjsService.timeAgo(comment.commenT_time)}}</a>
                                         </div>
                                     </li>
                                 </ul>

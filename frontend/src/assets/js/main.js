@@ -5,19 +5,13 @@
 
         
         $("pre").addClass("code-block custom-scrollbar-styled")
-        // if($("#vote")[0])//if vote
-        // {
-        //     Upvote.create('vote');
-        //     Upvote.create('vote2');
-        // }
         $( ".upvotejs" ).each(function( index ) {
        
             $( this ).attr('id', 'vote'+index);
             Upvote.create( $( this ).attr("id"));
           });
-        console.log($(".upvotejs"))
-        console.log($(".upvotejs").attr("id"))
- //   class="code-block custom-scrollbar-styled"
+    
+ 
         var o = e(document),
             a = e("html, body"),
             n = e("body"),

@@ -32,6 +32,8 @@ import {NgSelectizeModule} from 'ng-selectize';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { MailTemplateComponent } from './mail-template/mail-template.component';
+
+import { AngularDayjsModule } from 'angular-dayjs';
 export function returnToken()
 {
     return JSON.parse(this.cookieService.get('user')).token;
@@ -39,6 +41,7 @@ export function returnToken()
 
 @NgModule({
   declarations: [
+    
     AppComponent,
     IndexComponent,
     QuestionsComponent,
@@ -48,7 +51,8 @@ export function returnToken()
     AskQuestionComponent,
     ForgotPasswordComponent,
     QuestionsDetailComponent,
-    MailTemplateComponent
+    MailTemplateComponent,
+  
   ],
   imports: [
     NgSelectizeModule,
@@ -72,14 +76,10 @@ export function returnToken()
     JwtModule.forRoot({
       config:{
         tokenGetter:returnToken,
-        
-        // allowedDomains
-        // disallowedRoutes
-
-      },
-      
+      }
     }),
-    CKEditorModule
+    CKEditorModule,
+    AngularDayjsModule
   ],
   providers: [
     UserService,
