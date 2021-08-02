@@ -430,10 +430,10 @@
                    
                     <div class="subheader">
                         <div class="subheader-title">
-                            <h3 class="fs-16">Your Answer</h3>
+                            <h3 [innerHTML]="mes" class="fs-16"></h3>
                         </div><!-- end subheader-title -->
                     </div><!-- end subheader -->
-                    <div class="post-form">
+                    <div *ngIf="log" class="post-form">
                        
                         <form [formGroup]="service.formReply" (submit)="postAnswerSubmit()" class="pt-3">
                             <div class="input-box">
@@ -445,7 +445,10 @@
                           
                             <button class="btn theme-btn theme-btn-sm" type="submit">Post Your Answer</button>
                         </form>
-                    </div>
+                      
+                    </div> 
+                  
+                     
                 </div><!-- end question-main-bar -->
             </div><!-- end col-lg-9 -->
             <div class="col-lg-3">

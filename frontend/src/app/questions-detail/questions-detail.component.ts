@@ -24,7 +24,8 @@ export class QuestionsDetailComponent implements OnInit {
   author;
   comment;
   reply:any=[];
- 
+  log:boolean;
+  mes;
   constructor(public angularDayjsService: AngularDayjsService,private cookieService:CookieService,private route: ActivatedRoute,private system:SystemService,public service:UserService) { }
   private slug ;
   private id;
@@ -32,8 +33,12 @@ export class QuestionsDetailComponent implements OnInit {
   public Editor = this.system.Editor;
  
   ngOnInit(): void {
-
-   
+    this.log= this.service.checkLogin();
+    this.mes="You need <a href='/signin'>log in</a> to answer here"
+    if(this.log)
+    {
+      this.mes="Your Answer"
+    }
 
     this.routeSub = this.route.params.subscribe(params => {
       this.slug=params['id'];

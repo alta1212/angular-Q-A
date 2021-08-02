@@ -134,7 +134,7 @@ create  proc [dbo].[newQuestion]
 @author_image  nvarchar(100)
 )
 as
-insert into QUESTION (QUESTION_TITLE,
+insert  into QUESTION (QUESTION_TITLE,
 QUESTION_TAG,
 QUESTION_CATEGORY,
 QUESTION_DETAIL,
@@ -205,7 +205,7 @@ answer_time) VALUES(
     @author_image,
     @author,
     @author_name,
-    getdate()
+   convert(varchar, getdate(), 20)
     )
 
 
@@ -216,6 +216,8 @@ create proc getComment(@id int)
 as SELECT * from COMMENT_REPLY where QUESTION_ID=@id
 go
 ---temp------------------------------------
+
+
 
 create proc answer(@answer_QUESTION_ID nvarchar(10),
 @detail nvarchar  (max),@author_name nvarchar(50),
@@ -261,7 +263,58 @@ create proc getComment(@id int)
 
 as SELECT * from COMMENT_REPLY where QUESTION_ID=@id
 go
-exec getComment 2017
-update QUESTION set time =convert(varchar, getdate(), 20)
+
+
+
+
+alter proc answer(@answer_QUESTION_ID nvarchar(10),
+@detail nvarchar (MAX),@author_name nvarchar(50),
+@author_image NVARCHAR(400) null,
+@author NVARCHAR(4)
+)
+AS
+INSERT into QUESTION_REPLY (
+answer_QUESTION_ID,
+answer_DETAIL,
+answer_author,
+answer_author_name,
+answer_author_image,
+answer_time) VALUES(
+    @answer_QUESTION_ID,
+    @detail,
+    @author_image,
+    @author,
+    @author_name,
+   convert(varchar, getdate(), 20)
+    )
+
+
+go
+
+
 
 insert into COMMENT_REPLY(answer_REPLY_ID,QUESTION_ID,COMMENT_DETAIL,COMMENT_time) VALUES(1010,2017,'coádasdasd22t',convert(varchar, getdate(), 20))
+
+go
+
+alter  proc [dbo].[newQuestion]
+(@title nvarchar(50),
+@tag nvarchar(100),@category nvarchar(50)
+,@detail nvarchar(1000),@slug nvarchar(100),
+@getNOtication nvarchar(2),@type nvarchar(2),
+@author  nvarchar(100),@author_name  nvarchar(100),
+@author_image  nvarchar(100)
+)
+as
+insert  into QUESTION (QUESTION_TITLE,
+QUESTION_TAG,
+QUESTION_CATEGORY,
+QUESTION_DETAIL,
+SLUGS,
+type,
+getNotication,
+author,
+author_image,author_name,
+time
+) values (@title,@tag,@category,@detail,@slug,@type,@getNOtication,@author,@author_image,@author_name, convert(varchar, getdate(), 20))
+go
