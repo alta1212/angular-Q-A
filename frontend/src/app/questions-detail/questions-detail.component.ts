@@ -5,8 +5,6 @@ import { SystemService } from '../share/system/system.service';
 import { UserService } from '../share/user/user.service';
 import { CookieService } from 'ngx-cookie-service';
 
-import { strings as englishStrings } from 'ngx-timeago/language-strings/en';
-
 import { AngularDayjsService } from 'angular-dayjs';
 
 @Component({
