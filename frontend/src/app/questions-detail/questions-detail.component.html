@@ -123,7 +123,7 @@
                                         </div>
                                          <small class="meta d-block text-right">
                                             <span class="text-black d-block lh-18">asked</span>
-                                            <span class="d-block lh-18 fs-12">6 hours ago</span>
+                                            <span class="d-block lh-18 fs-12">{{angularDayjsService.timeAgo(time)}}</span>
                                         </small> 
                                     </div>
                                 </div><!-- end media -->
@@ -330,18 +330,11 @@
                                         </div>
                                         <small class="meta d-block text-right">
                                             <span class="text-black d-block lh-18">answered</span>
-                                            <span class="d-block lh-18 fs-12">8 hours ago</span>
+                                            <span class="d-block lh-18 fs-12">{{angularDayjsService.timeAgo(rep.answer_time)}}</span>
                                         </small>
                                     </div>
                                 </div><!-- end media -->
-                                <div class="media media-card user-media align-items-center">
-                                    <div class="media-body d-flex align-items-center justify-content-end">
-                                        <a href="revisions.html" class="meta d-block text-right fs-13 text-color">
-                                            <span class="d-block lh-18">edited</span>
-                                            <span class="d-block lh-18 fs-12">8 hours ago</span>
-                                        </a>
-                                    </div>
-                                </div><!-- end media -->
+                               
                             </div><!-- end question-post-user-action -->
                             <div class="comments-wrap">
                                 <ul *ngFor="let comment of rep.listComent ; let i = index" class="comments-list">

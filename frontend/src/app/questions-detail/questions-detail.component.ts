@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { SystemService } from '../share/system/system.service';
 import { UserService } from '../share/user/user.service';
 import { CookieService } from 'ngx-cookie-service';
+import {Title} from "@angular/platform-browser";
 
 import { AngularDayjsService } from 'angular-dayjs';
 
@@ -24,7 +25,9 @@ export class QuestionsDetailComponent implements OnInit {
   reply:any=[];
   log:boolean;
   mes;
-  constructor(public angularDayjsService: AngularDayjsService,private cookieService:CookieService,private route: ActivatedRoute,private system:SystemService,public service:UserService) { }
+  constructor(private titleService:Title,public angularDayjsService: AngularDayjsService,private cookieService:CookieService,private route: ActivatedRoute,private system:SystemService,public service:UserService) {
+   
+  }
   private slug ;
   private id;
   ckConfig=this.system.ckConfig;
@@ -37,7 +40,7 @@ export class QuestionsDetailComponent implements OnInit {
     {
       this.mes="Your Answer"
     }
-
+  
     this.routeSub = this.route.params.subscribe(params => {
       this.slug=params['id'];
       this.shareLink=window.location
@@ -45,12 +48,12 @@ export class QuestionsDetailComponent implements OnInit {
     
     this.system.getAllQuestionDetail(this.slug).subscribe(
       (res:any) => {
-         Object.keys(res).map(key => res[key]);
+       
           console.log(res)
           this.reply=res.item2;
           this.comment=res.item3;
           this.author=res.item1.author;
-         
+          
 
            for (let i = 0; i < this.reply.length; i++) {
              const node =this.reply[i];
@@ -59,11 +62,7 @@ export class QuestionsDetailComponent implements OnInit {
                  const node_con = this.comment[j];
                  if (node_con.answer_REPLY_ID == node.answer_REPLY_ID) {
                       node.listComent.push(node_con);
-                    console.log(node)
-                 }
-            
-               
-                  
+                 } 
                 }
           
            }
@@ -77,6 +76,7 @@ export class QuestionsDetailComponent implements OnInit {
           this.questionBody=res.item1.questioN_DETAIL;
           this.questionTitle=res.item1.questioN_TITLE;
           this.time=res.item1.time;
+          this.titleService.setTitle(this.questionTitle);
       },
       err=>{
         console.log(err)
