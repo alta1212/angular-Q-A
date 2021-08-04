@@ -10,6 +10,7 @@ namespace DAL.Interface
         #region  question
 
         Tuple<questionModal,List <QUESTION_REPLY>,List <Comment>> getDetailQuestion(string slug);
+        object getQuestion();
         #endregion question
     }
 }

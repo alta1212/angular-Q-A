@@ -2,3 +2,7 @@
 h3 a{
     color: #007bff !important;
 }
+pagination-template a
+{
+    cursor: pointer;
+}

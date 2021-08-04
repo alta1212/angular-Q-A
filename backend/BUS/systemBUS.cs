@@ -17,5 +17,9 @@ namespace BUS
         {
             return systemDAl.getDetailQuestion(slug);
         }
+        public object getQuestion()
+        {
+            return systemDAl.getQuestion();
+        }
     }
 }

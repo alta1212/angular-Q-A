@@ -48,5 +48,21 @@ namespace DAL
           
                
         }
+        public object getQuestion()
+        {
+            string msgError = "";
+          
+                var dt = databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "GetAllQuestion");
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                      if(dt.Rows.Count>0)
+                        { 
+                            
+                            return dt.ConvertTo<questionModal>().ToList();
+
+                        }
+                     return null;
+          
+        }
     }
 }

@@ -17,5 +17,7 @@ namespace MODELS
         public string author_image { get; set; }
         public string author_name { get; set; }
         public string time { get; set; }
+        public int vote { get; set; }
+        public int answer{ get; set; }
     }
 }

@@ -5,6 +5,7 @@ import { LoginComponent } from './user-auth/login/login.component';
 import { LayoutModule } from './layout/layout.module';
 import { GuardsService } from './guards/guards.service';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+
 const routes: Routes = [{
   path: 'not@123982173ad',
   component: MainLayoutComponent

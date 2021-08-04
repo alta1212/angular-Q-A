@@ -7,5 +7,6 @@ namespace BUS.Interface
     {
        
         Tuple<questionModal,List <QUESTION_REPLY>,List <Comment>> getDetailQuestion(string slug);
+        object getQuestion();
     }
 }

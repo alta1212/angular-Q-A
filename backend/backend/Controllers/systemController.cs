@@ -35,5 +35,12 @@ namespace backend.Controllers
       {
           return isystemBUS.getDetailQuestion(slug);
       }
+
+      [HttpGet]
+      [Route("question")]
+      public object Deatail()
+      {
+          return isystemBUS.getQuestion();
+      }
     }
 }

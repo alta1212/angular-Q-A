@@ -27,7 +27,10 @@ export class SystemService {
     return this.http.get(this.BaseURI+"system/questionDetail/"+id,{responseType: 'json'});
   }
 
-
+  GetAllQuestion()
+  {
+    return this.http.get(this.BaseURI+"system/question/",{responseType: 'json'});
+  }
   ckConfig={
     toolbar: [ 'heading', 
     "Autoformat",
