@@ -5,16 +5,15 @@ import { CanActivate,Router } from '@angular/router';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { CookieService } from 'ngx-cookie-service';
 import { stringify } from '@angular/compiler/src/util';
+import { SystemService } from '../system/system.service';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
 
-  constructor(private fb:FormBuilder, private http: HttpClient,private jwtSevice:JwtHelperService,private cookieService:CookieService) { }
-  //api url
-  readonly BaseURI="https://localhost:5001/";
-  //end api url
+  constructor(private sys:SystemService,private fb:FormBuilder, private http: HttpClient,private jwtSevice:JwtHelperService,private cookieService:CookieService) { }
+
 
   //user login
   formLOgin=this.fb.group(
@@ -30,7 +29,7 @@ export class UserService {
       USER_EMAIL: this.formLOgin.value.email,
       USER_PASSWORD: this.formLOgin.value.password
     };
-    return this.http.post(this.BaseURI+"user/login", body);
+    return this.http.post(this.sys.BaseURI+"user/login", body);
   }
   //end user login
 
@@ -49,7 +48,7 @@ export class UserService {
       USER_EMAIL: this.formSignup.value.email,
       USER_PASSWORD: this.formSignup.value.password
     };
-    return this.http.post(this.BaseURI+"user/signup", body);
+    return this.http.post(this.sys.BaseURI+"user/signup", body);
   }
   //end user sign up
 
@@ -64,7 +63,7 @@ export class UserService {
     }
     console.log(JSON.parse(this.cookieService.get('user')).useR_ID)
     console.log(JSON.parse(this.cookieService.get('user')))
-     return this.http.post(this.BaseURI+"user/getQr2fa",body,
+     return this.http.post(this.sys.BaseURI+"user/getQr2fa",body,
      { responseType: 'text' });
   }
   //kiểm tra 2 facode
@@ -77,7 +76,7 @@ export class UserService {
         "UserUniqueKey":JSON.parse(this.cookieService.get('user')).useR_ID
     }
 
-    return this.http.post(this.BaseURI+"user/check2fa",
+    return this.http.post(this.sys.BaseURI+"user/check2fa",
     body,
     { responseType: 'text' });
   }
@@ -92,7 +91,7 @@ export class UserService {
        
     }
 
-    return this.http.post(this.BaseURI+"user/enable2fa",
+    return this.http.post(this.sys.BaseURI+"user/enable2fa",
     body,
     { responseType: 'text' });
   }
@@ -106,7 +105,7 @@ export class UserService {
        
     }
 
-    return this.http.post(this.BaseURI+"user/disable2fa",
+    return this.http.post(this.sys.BaseURI+"user/disable2fa",
     body,
     { responseType: 'text' });
   }
@@ -166,8 +165,8 @@ export class UserService {
       
        //useR_NAME
     }
-    console.log(this.BaseURI+"user/ask/"+token)
-    return this.http.post(this.BaseURI+"user/ask/"+token,
+    console.log(this.sys.BaseURI+"user/ask/"+token)
+    return this.http.post(this.sys.BaseURI+"user/ask/"+token,
     body);
   
   }
@@ -198,7 +197,7 @@ export class UserService {
        //useR_NAME
     }
    
-    return this.http.post(this.BaseURI+"user/answer/",
+    return this.http.post(this.sys.BaseURI+"user/answer/",
     body);
   
   }
