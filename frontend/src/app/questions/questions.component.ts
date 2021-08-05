@@ -13,10 +13,14 @@ export class QuestionsComponent implements OnInit {
   totalListQuestionLength;
   ListQuestionpage ;
   questionTag;
+
   constructor(private titleService:Title,private system:SystemService,public angularDayjsService: AngularDayjsService) {
     this.titleService.setTitle("Questions");
   }
-
+  changePageSize(s)
+  {
+    alert(s) 
+  }
   ngOnInit(): void {
     this.system.GetAllQuestion().subscribe(
       (res:any) => {

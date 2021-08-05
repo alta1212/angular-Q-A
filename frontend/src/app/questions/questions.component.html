@@ -104,21 +104,21 @@
                                     </select>
                                 </div><!-- end filter-option-box -->
                             </div><!-- end filters -->
+                           
                             <div class="question-main-bar">
                                 <div class="questions-snippet">
                                     <div *ngFor="let question of listQuestion|paginate: { 
-                                       
                                         itemsPerPage: 10,
                                          currentPage: ListQuestionpage,
                                          totalItems :totalListQuestionLength
                                          }" class="media media-card media--card align-items-center">
                                         <div class="votes">
                                             <div class="vote-block d-flex align-items-center justify-content-between" title="Votes">
-                                                <span class="vote-counts">0</span>
+                                                <span class="vote-counts">{{question.vote}}</span>
                                                 <span class="vote-icon"></span>
                                             </div>
                                             <div class="answer-block d-flex align-items-center justify-content-between" title="Answers">
-                                                <span class="vote-counts">0</span>
+                                                <span class="vote-counts">{{question.answer}}</span>
                                                 <span class="answer-icon"></span>
                                             </div>
                                         </div>
@@ -160,18 +160,9 @@
                                                 </li>
                                             </ul>
                                         </nav>
-                                        <p class="fs-13 pt-3">Showing 1-15 results of 50,577 questions</p>
+                                        <p class="fs-13 pt-3">Showing 1-10 results of {{p.getTotalItems()}} questions</p>
                                     </div>
-                                    <div class="filter-option-box w-20">
-                                        <select class="select-container">
-                                            <option value="10">10 per page</option>
-                                            <option selected="" value="15">15 per page</option>
-                                            <option value="20">20 per page</option>
-                                            <option value="30">30 per page</option>
-                                            <option value="40">40 per page</option>
-                                            <option value="50">50 per page</option>
-                                        </select>
-                                    </div>
+                                 
                                 </pagination-template>
                             </div><!-- end question-main-bar -->
                         </div><!-- end tab-pane -->

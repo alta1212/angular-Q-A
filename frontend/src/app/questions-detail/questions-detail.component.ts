@@ -22,9 +22,11 @@ export class QuestionsDetailComponent implements OnInit {
   shareLink;
   author;
   comment;
+  authorName;
   reply:any=[];
   log:boolean;
   mes;
+
   constructor(private titleService:Title,public angularDayjsService: AngularDayjsService,private cookieService:CookieService,private route: ActivatedRoute,private system:SystemService,public service:UserService) {
    
   }
@@ -53,7 +55,7 @@ export class QuestionsDetailComponent implements OnInit {
           this.reply=res.item2;
           this.comment=res.item3;
           this.author=res.item1.author;
-          
+          this.authorName=res.item1.author_name
 
            for (let i = 0; i < this.reply.length; i++) {
              const node =this.reply[i];

@@ -219,4 +219,13 @@ go
 
 create proc GetAllQuestion
 as
-select * from QUESTION
+select q.QUESTION_ID,q.QUESTION_TITLE,q.QUESTION_TAG,q.author_name,q.SLUGS,q.[time],
+sum( case when v.vote  is null then 0
+ else v.vote end) as vote,
+count(  r.answer_REPLY_ID ) as answer
+from QUESTION q left JOIN VOTE v 
+on v.QUESTION_ID=q.QUESTION_ID LEFT join QUESTION_REPLY r on r.answer_QUESTION_ID=q.QUESTION_ID
+group by  q.QUESTION_TITLE,q.QUESTION_TAG,
+q.author_name,q.SLUGS,q.[time]
+,q.QUESTION_ID
+GO
