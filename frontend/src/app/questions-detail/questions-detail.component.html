@@ -197,7 +197,7 @@
                                         <a class="collapse-btn comment-link" data-toggle="collapse" href="#addCommentCollapse" role="button" aria-expanded="false" aria-controls="addCommentCollapse" title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">Add a comment</a>
                                     </div>
                                     <div class="collapse border-top border-top-gray mt-2 pt-3" id="addCommentCollapse">
-                                        <form method="post" class="row pb-3">
+                                        <form  class="row pb-3">
                                             <div class="col-lg-12">
                                                 <h4 class="fs-16 pb-2">Leave a Comment</h4>
                                                 <div class="divider mb-2"><span></span></div>
@@ -345,77 +345,42 @@
                                         <div class="comment-body">
                                             <span class="comment-copy">{{ comment.commenT_DETAIL}}</span>
                                             <span class="comment-separated">-</span>
-                                            <a href="user-profile.html" class="comment-user owner" title="224,110 reputation">Arden Smith</a>
+                                            <a href="#" class="comment-user owner" title="224,110 reputation">{{comment.commenT_author_name}}</a>
                                             <span class="comment-separated">-</span>
                                             <a href="#" class="comment-date">{{angularDayjsService.timeAgo(comment.commenT_time)}}</a>
                                         </div>
                                     </li>
                                 </ul>
-                                <div class="comment-form">
+                                <div *ngIf="log" class="comment-form">
                                     <div class="comment-link-wrap text-center">
-                                        <a class="collapse-btn comment-link" data-toggle="collapse" href="#addCommentCollapseTwo" role="button" aria-expanded="false" aria-controls="addCommentCollapseTwo" title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">Add a comment</a>
+                                        <a class="collapse-btn comment-link" data-toggle="collapse" href="#addCommentCollapse{{rep.answer_REPLY_ID}}" role="button" aria-expanded="false" title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">Add a comment</a>
                                     </div>
-                                    <div class="collapse border-top border-top-gray mt-2 pt-3" id="addCommentCollapseTwo">
-                                        <form method="post" class="row pb-3">
+                                    <div class="collapse border-top border-top-gray mt-2 pt-3" id="addCommentCollapse{{rep.answer_REPLY_ID}}">
+                                        <form [formGroup]="service.formComment" (submit)="postComment(rep.answer_REPLY_ID)" class="row pb-3">
                                             <div class="col-lg-12">
                                                 <h4 class="fs-16 pb-2">Leave a Comment</h4>
                                                 <div class="divider mb-2"><span></span></div>
                                             </div><!-- end col-lg-12 -->
-                                            <div class="col-lg-6">
-                                                <div class="input-box">
-                                                    <label class="fs-13 text-black lh-20">Name</label>
-                                                    <div class="form-group">
-                                                        <input class="form-control form--control form-control-sm fs-13" type="text" name="text" placeholder="Your name">
-                                                    </div>
-                                                </div>
-                                            </div><!-- end col-lg-6 -->
-                                            <div class="col-lg-6">
-                                                <div class="input-box">
-                                                    <label class="fs-13 text-black lh-20">Email (Address never made public)</label>
-                                                    <div class="form-group">
-                                                        <input class="form-control form--control form-control-sm fs-13" type="text" name="text" placeholder="Your email">
-                                                    </div>
-                                                </div>
-                                            </div><!-- end col-lg-6 -->
-                                            <div class="col-lg-12">
-                                                <div class="input-box">
-                                                    <label class="fs-13 text-black lh-20">Website</label>
-                                                    <div class="form-group">
-                                                        <input class="form-control form--control form-control-sm fs-13" type="text" name="text" placeholder="Website link">
-                                                    </div>
-                                                </div>
-                                            </div><!-- end col-lg-12 -->
+                                            
                                             <div class="col-lg-12">
                                                 <div class="input-box">
                                                     <label class="fs-13 text-black lh-20">Message</label>
                                                     <div class="form-group">
-                                                        <textarea class="form-control form--control form-control-sm fs-13" name="message" rows="5" placeholder="Your comment here..."></textarea>
-                                                        <div class="d-flex flex-wrap align-items-center pt-2">
-                                                            <div class="badge bg-gray border border-gray mr-3 fw-regular fs-13">[named hyperlinks] (https://example.com)</div>
-                                                            <div class="mr-3 fw-bold fs-13">**bold**</div>
-                                                            <div class="mr-3 font-italic fs-13">_italic_</div>
-                                                        </div>
+                                                       
+                                                        <input class="form-control form--control" formControlName="COMMENT_DETAIL"  >
                                                     </div>
                                                 </div>
                                             </div><!-- end col-lg-12 -->
                                             <div class="col-lg-12">
                                                 <div class="input-box d-flex flex-wrap align-items-center justify-content-between">
-                                                    <div>
-                                                        <div class="custom-control custom-checkbox fs-13">
-                                                            <input type="checkbox" class="custom-control-input" id="getNewCommentsTwo">
-                                                            <label class="custom-control-label custom--control-label" for="getNewCommentsTwo">Notify me of new comments vai email.</label>
-                                                        </div>
-                                                        <div class="custom-control custom-checkbox fs-13">
-                                                            <input type="checkbox" class="custom-control-input" id="getNewPostsTwo">
-                                                            <label class="custom-control-label custom--control-label" for="getNewPostsTwo">Notify me of new posts vai email.</label>
-                                                        </div>
-                                                    </div>
                                                     <button class="btn theme-btn theme-btn-sm theme-btn-outline theme-btn-outline-gray" type="submit">Post Comment</button>
                                                 </div>
                                             </div><!-- end col-lg-12 -->
                                         </form>
                                     </div><!-- end collapse -->
                                 </div>
+
+
                             </div><!-- end comments-wrap -->
                             
                         </div><!-- end answer-body-wrap -->  

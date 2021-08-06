@@ -190,6 +190,16 @@ namespace backend.Controllers
         return iuserBUS.REPLY(qUESTION_REPLY);
       }
       #endregion answer
+     
+
+      #region comment
+      [HttpPost]
+      [Route("comment")]
+      public Comment comment(Comment Comment)
+      {
+        return iuserBUS.comment(Comment);
+      }
+      #endregion comment
     }
     
 }

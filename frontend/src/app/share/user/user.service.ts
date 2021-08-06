@@ -175,7 +175,7 @@ export class UserService {
   formReply=this.fb.group(
     {
       answer_QUESTION_ID:["",[Validators.required]],
-      answer_DETAIL:["<p>Write your answer here!</p>",[Validators.required,Validators.minLength(10)]],
+      answer_DETAIL:["<h3>Write your answer here!</h3>",[Validators.required,Validators.minLength(10)]],
       answer_author :[""],
       answer_author_name:[""],
       answer_author_image :[""],
@@ -202,4 +202,34 @@ export class UserService {
   
   }
   //end reply
+
+  //comment
+  formComment=this.fb.group(
+    {
+     
+      QUESTION_ID:["",[Validators.required,Validators.minLength(10)]],
+      COMMENT_DETAIL :["Write your comment here!",[Validators.required,Validators.minLength(2)]],
+      COMMENT_author_name :["",[Validators.required]],
+      COMMENT_author_image:["",[Validators.required]],
+      answer_REPLY_ID:["",[Validators.required]]
+    }
+  )
+  postComment(s)
+  { 
+    console.log(s)
+    var body=
+    {  
+       'QUESTION_ID':this.formComment.value.QUESTION_ID,
+       'COMMENT_author_name':JSON.parse(this.cookieService.get('user')).useR_NAME,
+       'COMMENT_author_image':JSON.parse(this.cookieService.get('user')).useR_IMAGE,
+       'COMMENT_DETAIL':this.formComment.value.COMMENT_DETAIL,
+       'answer_REPLY_ID':this.formComment.value.answer_REPLY_ID
+       //useR_NAME
+    }
+   
+    return this.http.post(this.sys.BaseURI+"user/comment/",
+    body);
+  
+  }
+  //end comment
 }

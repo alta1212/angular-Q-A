@@ -150,6 +150,29 @@ namespace DAL
                 throw ex;
             }
         }
+
+        public Comment comment(Comment c)
+        {
+             string msgError = "";
+            try
+            {
+                var dt = databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "PostComment",
+                     "@answer_REPLY_ID", c.answer_REPLY_ID,
+                     "@QUESTION_ID", c.QUESTION_ID,
+                     "@COMMENT_DETAIL", c.COMMENT_DETAIL,
+                     "@COMMENT_author",c.COMMENT_author,
+                     "@COMMENT_author_image",c.COMMENT_author_image,
+                     "@COMMENT_author_name",c.COMMENT_author_name
+                     );
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                return dt.ConvertTo<Comment>().FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         #endregion answer
     }
 }

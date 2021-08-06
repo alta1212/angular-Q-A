@@ -21,5 +21,8 @@ namespace BUS.Interface
         #region  answer
         QUESTION_REPLY REPLY(QUESTION_REPLY qUESTION_REPLY);
         #endregion answer
+        #region  comment
+        Comment comment(Comment c);
+        #endregion comment
     }
 }

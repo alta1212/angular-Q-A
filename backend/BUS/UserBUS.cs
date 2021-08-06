@@ -41,5 +41,10 @@ namespace BUS
         {
             return userDAl.REPLY(qUESTION_REPLY);
         }
+
+        public Comment comment(Comment c)
+        {
+            return userDAl.comment(c);
+        }
     }
 }

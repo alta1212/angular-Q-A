@@ -88,14 +88,13 @@ export class QuestionsDetailComponent implements OnInit {
 
   postAnswerSubmit()
   {
-    console.log(this.author)
-    this.service.formReply.value.answer_QUESTION_ID=this.id;
     this.service.formReply.value.token=JSON.parse(this.cookieService.get('user')).token
+    this.service.formReply.value.answer_QUESTION_ID=this.id;
     this.service.formReply.value.author_QUESTION_ID=this.author
     this.service.postAnswer().subscribe(
       (res:any) => {
       
-        window.location.reload();
+       console.log(res)
       },
       err=>{
         console.log(err)
@@ -103,6 +102,21 @@ export class QuestionsDetailComponent implements OnInit {
     )
   
   }
-
+  postComment(a)
+  {
+    this.service.formComment.value.answer_REPLY_ID=a;
+    this.service.formComment.value.QUESTION_ID=this.id;
+    this.service.formComment.value.token=JSON.parse(this.cookieService.get('user')).token
+    this.service.formComment.value.author_QUESTION_ID=this.author
+    this.service.postComment(a).subscribe(
+      (res:any) => {
+      
+        console.log(res)
+      },
+      err=>{
+        console.log(err)
+      }
+    )
+  }
 
 }

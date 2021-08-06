@@ -21,3 +21,4 @@ C:\Users\welcome\Desktop\angular-Q-A\backend\MODELS\obj\Debug\net5.0\MODELS.cspr
 C:\Users\welcome\Desktop\angular-Q-A\backend\MODELS\obj\Debug\net5.0\MODELS.dll
 C:\Users\welcome\Desktop\angular-Q-A\backend\MODELS\obj\Debug\net5.0\ref\MODELS.dll
 C:\Users\welcome\Desktop\angular-Q-A\backend\MODELS\obj\Debug\net5.0\MODELS.pdb
+C:\Users\welcome\Desktop\angular-Q-A\backend\MODELS\obj\Debug\net5.0\MODELS.csprojAssemblyReference.cache

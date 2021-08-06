@@ -215,17 +215,20 @@ create proc getComment(@id int)
 
 as SELECT * from COMMENT_REPLY where QUESTION_ID=@id
 go
+
+create proc PostComment
+(@answer_REPLY_ID nvarchar(10)
+,@QUESTION_ID nvarchar(10)
+,@COMMENT_DETAIL nvarchar(800)
+,@COMMENT_author nvarchar(10)
+,@COMMENT_author_name nvarchar(10)
+,@COMMENT_author_image nvarchar(10)
+)
+as
+insert into COMMENT_REPLY
+ (answer_REPLY_ID,QUESTION_ID,COMMENT_DETAIL,COMMENT_author,COMMENT_time,COMMENT_author_name,COMMENT_author_image)
+ values(@answer_REPLY_ID,@QUESTION_ID,@COMMENT_DETAIL,@COMMENT_author,convert(varchar, getdate(), 20),@COMMENT_author_name,@COMMENT_author_image)
+
 ---temp------------------------------------
 
-create proc GetAllQuestion
-as
-select q.QUESTION_ID,q.QUESTION_TITLE,q.QUESTION_TAG,q.author_name,q.SLUGS,q.[time],
-sum( case when v.vote  is null then 0
- else v.vote end) as vote,
-count(  r.answer_REPLY_ID ) as answer
-from QUESTION q left JOIN VOTE v 
-on v.QUESTION_ID=q.QUESTION_ID LEFT join QUESTION_REPLY r on r.answer_QUESTION_ID=q.QUESTION_ID
-group by  q.QUESTION_TITLE,q.QUESTION_TAG,
-q.author_name,q.SLUGS,q.[time]
-,q.QUESTION_ID
-GO
+

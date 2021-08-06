@@ -22,6 +22,7 @@ namespace DAL.Interface
         #endregion  ask
         #region  answer
         QUESTION_REPLY REPLY(QUESTION_REPLY qUESTION_REPLY);
+        Comment comment(Comment c);
         #endregion answer
     }
 }
