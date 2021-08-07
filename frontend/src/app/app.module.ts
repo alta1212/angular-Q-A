@@ -34,7 +34,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { MailTemplateComponent } from './mail-template/mail-template.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { AngularDayjsModule } from 'angular-dayjs';
- 
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { ErrorPageModule } from './error-page/error-page.module';
 export function returnToken()
 {
     return JSON.parse(this.cookieService.get('user')).token;
@@ -52,7 +53,8 @@ export function returnToken()
     AskQuestionComponent,
     ForgotPasswordComponent,
     QuestionsDetailComponent,
-    MailTemplateComponent
+    MailTemplateComponent,
+    ErrorPageComponent
   
   ],
   imports: [
@@ -72,6 +74,7 @@ export function returnToken()
     ForgotPasswordModule,
     HttpClientModule,
     FormsModule,
+    ErrorPageModule,
     QuestionsDetailModule,
     NgSelectModule,
     ReactiveFormsModule,

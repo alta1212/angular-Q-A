@@ -43,6 +43,11 @@ export class ModalComponent implements OnInit {
       },
       err => {
         console.log(err);
+        cuteToast({
+          type: "error",
+          message: "Something went wrong,Try refresh the page",
+          timer: 5000
+        })
       }
     );
   }
@@ -84,6 +89,11 @@ export class ModalComponent implements OnInit {
        
       },
       err => {
+        cuteToast({
+          type: "error",
+          message: "Something went wrong,Try refresh the page",
+          timer: 5000
+        })
         console.log(err);
       }
     );

@@ -9,7 +9,7 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
 const routes: Routes = [{
   path: 'not@123982173ad',
   component: MainLayoutComponent
-}];
+} ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

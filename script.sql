@@ -106,6 +106,11 @@ CREATE TABLE CATEGORY(
 )
 
 go
+create table accsetPrivateQuestion(
+    questionId int,
+    userId int
+)
+go
 create proc [dbo].[userSignup] 
 (@username nvarchar(100),@usermail nvarchar(100),@userpassword nvarchar(100),@slug nvarchar(100),@image nvarchar(2000))
 as
@@ -130,7 +135,7 @@ create  proc [dbo].[newQuestion]
 (@title nvarchar(50),
 @tag nvarchar(100),@category nvarchar(50)
 ,@detail nvarchar(1000),@slug nvarchar(100),
-@getNOtication nvarchar(2),@type nvarchar(2),
+@getNOtication nvarchar(10),@type nvarchar(10),
 @author  nvarchar(100),@author_name  nvarchar(100),
 @author_image  nvarchar(2000)
 )
@@ -243,20 +248,18 @@ group by  q.QUESTION_TITLE,q.QUESTION_TAG,
 q.author_name,q.SLUGS,q.[time]
 ,q.QUESTION_ID
 GO
----temp------------------------------------
-use master
-go
-drop DATABASE QandA
-
-go
-ALTER proc [dbo].[userSignup] 
-(@username nvarchar(100),@usermail nvarchar(100),@userpassword nvarchar(100),@slug nvarchar(100),@image nvarchar(100))
+create  proc checkAccset(@qID int,@uID int)
 as
-insert into Infouser(USER_NAME,USER_EMAIL,USER_PASSWORD,slug,Tfa,USER_IMAGE) OUTPUT Inserted.USER_ID,inserted.[USER_NAME] values(@username,@usermail,@userpassword,@slug,0,@image)
-GO
+select COUNT(userId) as count from accsetPrivateQuestion where userId =@uID and questionId=@qID
+---temp------------------------------------
+create table accsetPrivateQuestion(
+    questionId int,
+    userId int
+)
+go
+create proc checkAccset(@qID int,@uID int)
+as
+select COUNT(userId) as count from accsetPrivateQuestion where userId =@uID and questionId=@qID
 
 
-ALTER TABLE Infouser
-ALTER COLUMN USER_IMAGE nvarchar(1000);
-ALTER TABLE QUESTION_REPLY
-ALTER COLUMN answer_author_image nvarchar(2000);
+exec  checkAccset 4,1

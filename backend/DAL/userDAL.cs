@@ -28,8 +28,8 @@ namespace DAL
                      "@category", q.QUESTION_CATEGORY,
                      "@detail", q.QUESTION_DETAIL,
                      "@slug", q.SLUGS,
-                     "@getNOtication", q.getNotication,
-                     "@type", q.type,
+                     "@getNOtication",q.getNotication,
+                     "@type",q.type ,
                      "@author", q.author,
                      "@author_image", q.author_image,
                      "@author_name", q.author_name);
@@ -176,5 +176,6 @@ namespace DAL
             }
         }
         #endregion answer
+       
     }
 }

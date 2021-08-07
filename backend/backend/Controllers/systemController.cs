@@ -29,11 +29,12 @@ namespace backend.Controllers
         isystemBUS=k;
       }
         
-      [HttpGet]
+      [HttpPost]
       [Route("questionDetail/{slug}")]
-      public object Deatail(string slug)
-      {
-          return isystemBUS.getDetailQuestion(slug);
+      public object Deatail(string slug,QUESTION_Accset a)
+      {  
+          int userid=int.Parse(tool.decryption(a.token));
+          return isystemBUS.getDetailQuestion(slug,userid);
       }
 
       [HttpGet]

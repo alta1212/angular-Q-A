@@ -20,4 +20,8 @@ namespace MODELS
         public int vote { get; set; }
         public int answer{ get; set; }
     }
+    public class QUESTION_Accset
+    {
+        public string token { get; set; }
+    }
 }

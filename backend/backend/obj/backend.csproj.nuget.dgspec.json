@@ -1,39 +1,41 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\backend\\backend.csproj": {}
+    "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\backend\\backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\backend\\backend.csproj": {
+    "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\backend\\backend.csproj",
+        "projectUniqueName": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\backend\\backend.csproj",
-        "packagesPath": "C:\\Users\\tuan anh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\backend\\obj\\",
+        "projectPath": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\backend\\backend.csproj",
+        "packagesPath": "C:\\Users\\welcome\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tuan anh\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\welcome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\BUS\\BUS.csproj": {
-                "projectPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\BUS\\BUS.csproj"
+              "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\BUS\\BUS.csproj": {
+                "projectPath": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\BUS\\BUS.csproj"
               },
-              "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\MODELS\\MODELS.csproj": {
-                "projectPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\MODELS\\MODELS.csproj"
+              "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\MODELS\\MODELS.csproj": {
+                "projectPath": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\MODELS\\MODELS.csproj"
               },
-              "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\Tool\\Tool.csproj": {
-                "projectPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\Tool\\Tool.csproj"
+              "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\Tool\\Tool.csproj": {
+                "projectPath": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\Tool\\Tool.csproj"
               }
             }
           }
@@ -91,37 +93,39 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.205\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\BUS\\BUS.csproj": {
+    "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\BUS\\BUS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\BUS\\BUS.csproj",
+        "projectUniqueName": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\BUS\\BUS.csproj",
         "projectName": "BUS",
-        "projectPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\BUS\\BUS.csproj",
-        "packagesPath": "C:\\Users\\tuan anh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\BUS\\obj\\",
+        "projectPath": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\BUS\\BUS.csproj",
+        "packagesPath": "C:\\Users\\welcome\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\BUS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tuan anh\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\welcome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\DAL\\DAL.csproj"
+              "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\DAL\\DAL.csproj"
               },
-              "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\MODELS\\MODELS.csproj": {
-                "projectPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\MODELS\\MODELS.csproj"
+              "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\MODELS\\MODELS.csproj": {
+                "projectPath": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\MODELS\\MODELS.csproj"
               }
             }
           }
@@ -150,34 +154,36 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.205\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\DAL\\DAL.csproj": {
+    "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\tuan anh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\DAL\\obj\\",
+        "projectPath": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\welcome\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tuan anh\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\welcome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\MODELS\\MODELS.csproj": {
-                "projectPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\MODELS\\MODELS.csproj"
+              "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\MODELS\\MODELS.csproj": {
+                "projectPath": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\MODELS\\MODELS.csproj"
               }
             }
           }
@@ -220,26 +226,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.205\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\MODELS\\MODELS.csproj": {
+    "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\MODELS\\MODELS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\MODELS\\MODELS.csproj",
+        "projectUniqueName": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\MODELS\\MODELS.csproj",
         "projectName": "MODELS",
-        "projectPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\MODELS\\MODELS.csproj",
-        "packagesPath": "C:\\Users\\tuan anh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\MODELS\\obj\\",
+        "projectPath": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\MODELS\\MODELS.csproj",
+        "packagesPath": "C:\\Users\\welcome\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\MODELS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tuan anh\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\welcome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -272,34 +280,36 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.205\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\Tool\\Tool.csproj": {
+    "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\Tool\\Tool.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\Tool\\Tool.csproj",
+        "projectUniqueName": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\Tool\\Tool.csproj",
         "projectName": "Tool",
-        "projectPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\Tool\\Tool.csproj",
-        "packagesPath": "C:\\Users\\tuan anh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\Tool\\obj\\",
+        "projectPath": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\Tool\\Tool.csproj",
+        "packagesPath": "C:\\Users\\welcome\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\Tool\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tuan anh\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\welcome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\MODELS\\MODELS.csproj": {
-                "projectPath": "C:\\Users\\tuan anh\\Documents\\angular Q&A\\backend\\MODELS\\MODELS.csproj"
+              "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\MODELS\\MODELS.csproj": {
+                "projectPath": "C:\\Users\\welcome\\Desktop\\angular-Q-A\\backend\\MODELS\\MODELS.csproj"
               }
             }
           }
@@ -354,7 +364,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.205\\RuntimeIdentifierGraph.json"
         }
       }
     }

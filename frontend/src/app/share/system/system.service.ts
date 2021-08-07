@@ -11,7 +11,7 @@ import * as code from "../ckeditor/build/ckEditor";
 })
 export class SystemService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private cookieService:CookieService) { }
   //api url
   readonly BaseURI="https://localhost:5001/";
   //end api url
@@ -23,8 +23,10 @@ export class SystemService {
   }
   getAllQuestionDetail(id)
   {
-   
-    return this.http.get(this.BaseURI+"system/questionDetail/"+id,{responseType: 'json'});
+    var body ={
+      "token":JSON.parse(this.cookieService.get('user')).token
+    }
+    return this.http.post(this.BaseURI+"system/questionDetail/"+id,body,{responseType: 'json'});
   }
 
   GetAllQuestion()

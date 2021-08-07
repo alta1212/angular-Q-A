@@ -45,7 +45,7 @@ namespace Tool
                         return new JwtSecurityTokenHandler().WriteToken(token);    
         }
 
-        public string decryption(string token)
+        public static string decryption(string token)
         {
         
           var handler = new JwtSecurityTokenHandler();

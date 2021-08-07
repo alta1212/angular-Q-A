@@ -9,7 +9,7 @@ namespace DAL.Interface
     {
         #region  question
 
-        Tuple<questionModal,List <QUESTION_REPLY>,List <Comment>> getDetailQuestion(string slug);
+        Tuple<questionModal,List <QUESTION_REPLY>,List <Comment>> getDetailQuestion(string slug,int id);
         object getQuestion();
         #endregion question
     }

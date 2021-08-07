@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Title} from "@angular/platform-browser";
 import { SystemService } from '../share/system/system.service';
 import { AngularDayjsService } from 'angular-dayjs';
+declare var cuteToast: any;
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.component.html',
@@ -27,6 +28,11 @@ export class QuestionsComponent implements OnInit {
       },
       err=>{
         console.log(err)
+        cuteToast({
+          type: "error",
+          message: "Something went wrong,Try refresh the page",
+          timer: 5000
+        })
       }
     )
   }

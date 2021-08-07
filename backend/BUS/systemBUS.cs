@@ -13,9 +13,9 @@ namespace BUS
             systemDAl=k;
         }
      
-        public  Tuple<questionModal,List <QUESTION_REPLY>,List <Comment>> getDetailQuestion(string slug)
+        public  Tuple<questionModal,List <QUESTION_REPLY>,List <Comment>> getDetailQuestion(string slug,int id)
         {
-            return systemDAl.getDetailQuestion(slug);
+            return systemDAl.getDetailQuestion(slug,id);
         }
         public object getQuestion()
         {
