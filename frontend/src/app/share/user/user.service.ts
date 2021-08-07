@@ -48,7 +48,7 @@ export class UserService {
       USER_EMAIL: this.formSignup.value.email,
       USER_PASSWORD: this.formSignup.value.password
     };
-    return this.http.post(this.sys.BaseURI+"user/signup", body);
+    return this.http.post(this.sys.BaseURI+"user/signup", body,{ responseType: 'text' });
   }
   //end user sign up
 
@@ -116,7 +116,7 @@ export class UserService {
 
   logout()
   {
-    this.cookieService.deleteAll();
+    this.cookieService.deleteAll("/");
     window.location.href="/signin";
   }
 
@@ -168,7 +168,7 @@ export class UserService {
     console.log(this.sys.BaseURI+"user/ask/"+token)
     return this.http.post(this.sys.BaseURI+"user/ask/"+token,
     body);
-  
+  //reportProgress: true, observe: 'events'
   }
   //end ask
   //reply

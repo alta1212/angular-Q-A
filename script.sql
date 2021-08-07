@@ -12,7 +12,7 @@ create table Infouser(--BẢNG NGƯỜI DÙNG
     USER_PASSWORD NVARCHAR(60),
     USER_LOCATION NVARCHAR(60),
     USER_EMAIL NVARCHAR(60),
-    USER_IMAGE NVARCHAR(60),
+    USER_IMAGE NVARCHAR(2000),
     USER_DESCRIPTION NVARCHAR(1000),
     WEBSITE NVARCHAR(100),
     FACEBOOK NVARCHAR(100),
@@ -30,7 +30,7 @@ create table COMPANY(--BẢNG NGƯỜI DÙNG
     USER_PASSWORD NVARCHAR(60),
     USER_LOCATION NVARCHAR(60),
     USER_EMAIL NVARCHAR(60),
-    USER_IMAGE NVARCHAR(60),
+    USER_IMAGE NVARCHAR(2000),
     USER_DESCRIPTION NVARCHAR(1000),
     WEBSITE NVARCHAR(100),
     FACEBOOK NVARCHAR(100),
@@ -47,14 +47,14 @@ CREATE TABLE QUESTION(--CÂU HỎI
     QUESTION_TAG NVARCHAR(100),
     QUESTION_CATEGORY INT,
     QUESTION_DETAIL NVARCHAR(1000),
-    QUESTION_IMAGE NVARCHAR(100),
+    QUESTION_IMAGE NVARCHAR(2000),
     SLUGS NVARCHAR(500),
     getNotication nvarchar(10),
     type nvarchar(10),
     author int,
     time NVARCHAR(50),
     author_name NVARCHAR(50),
-    author_image NVARCHAR(50)
+    author_image NVARCHAR(2000)
 )
 GO
 
@@ -71,11 +71,11 @@ CREATE TABLE QUESTION_REPLY(---TRẢ LỜI CÂU HỎI
     answer_QUESTION_ID INT,
     PIN INT,---NẾU GHIM CÂU TRẢ LỜI(CHỈ CHỦ CÂU HỎI MỚI CÓ THỂ GHIM)
     answer_DETAIL NVARCHAR(1000),
-    answer_IMAGE NVARCHAR(100),
+    answer_IMAGE NVARCHAR(2000),
     answer_author int,
     answer_time NVARCHAR(50),
     answer_author_name NVARCHAR(50),
-    answer_author_image NVARCHAR(50)
+    answer_author_image NVARCHAR(2000)
 )
 GO
 CREATE   TABLE COMMENT_REPLY(--COMMENT CÂU TRẢ LỜI
@@ -86,7 +86,7 @@ CREATE   TABLE COMMENT_REPLY(--COMMENT CÂU TRẢ LỜI
     COMMENT_author int,
     COMMENT_time NVARCHAR(50),
     COMMENT_author_name NVARCHAR(50),
-    COMMENT_author_image NVARCHAR(50)
+    COMMENT_author_image NVARCHAR(2000)
 )
 GO
 CREATE TABLE NOTICATION(
@@ -100,17 +100,18 @@ GO
 CREATE TABLE CATEGORY(
     CATEGORY_ID INT IDENTITY(1,1) PRIMARY KEY,
     CATEGORY_NAME NVARCHAR(40),
-    CATEGORY_IMAGE NVARCHAR(40),
+    CATEGORY_IMAGE NVARCHAR(2000),
     CATEGORY_COUNT_POST INT,
     SLUGS NVARCHAR(500)
 )
 
 go
-create proc userSignup 
-(@username nvarchar(100),@usermail nvarchar(100),@userpassword nvarchar(100),@slug nvarchar(100))
+create proc [dbo].[userSignup] 
+(@username nvarchar(100),@usermail nvarchar(100),@userpassword nvarchar(100),@slug nvarchar(100),@image nvarchar(2000))
 as
-insert into Infouser(USER_NAME,USER_EMAIL,USER_PASSWORD,slug,Tfa) values(@username,@usermail,@userpassword,@slug,0)
+insert into Infouser(USER_NAME,USER_EMAIL,USER_PASSWORD,slug,Tfa,USER_IMAGE) OUTPUT Inserted.USER_ID,inserted.[USER_NAME] values(@username,@usermail,@userpassword,@slug,0,@image)
 GO
+
 
 
 create proc userLogin 
@@ -131,7 +132,7 @@ create  proc [dbo].[newQuestion]
 ,@detail nvarchar(1000),@slug nvarchar(100),
 @getNOtication nvarchar(2),@type nvarchar(2),
 @author  nvarchar(100),@author_name  nvarchar(100),
-@author_image  nvarchar(100)
+@author_image  nvarchar(2000)
 )
 as
 insert  into QUESTION (QUESTION_TITLE,
@@ -144,7 +145,7 @@ getNotication,
 author,
 author_image,author_name,
 time
-) values (@title,@tag,@category,@detail,@slug,@type,@getNOtication,@author,@author_image,@author_name, GETDATE())
+) values (@title,@tag,@category,@detail,@slug,@type,@getNOtication,@author,@author_image,@author_name, convert(varchar, getdate(), 20))
 go
 
 
@@ -187,9 +188,9 @@ GO
 
 
 
-create proc answer(@answer_QUESTION_ID nvarchar(10),
+create  proc answer(@answer_QUESTION_ID nvarchar(10),
 @detail nvarchar (MAX),@author_name nvarchar(50),
-@author_image NVARCHAR(400) null,
+@author_image NVARCHAR(2000) null,
 @author NVARCHAR(4)
 )
 AS
@@ -201,10 +202,10 @@ answer_author_name,
 answer_author_image,
 answer_time) VALUES(
     @answer_QUESTION_ID,
-    @detail,
-    @author_image,
-    @author,
+    @detail,    
+    @author,  
     @author_name,
+    @author_image,
    convert(varchar, getdate(), 20)
     )
 
@@ -216,19 +217,46 @@ create proc getComment(@id int)
 as SELECT * from COMMENT_REPLY where QUESTION_ID=@id
 go
 
-create proc PostComment
+create  proc PostComment
 (@answer_REPLY_ID nvarchar(10)
 ,@QUESTION_ID nvarchar(10)
 ,@COMMENT_DETAIL nvarchar(800)
 ,@COMMENT_author nvarchar(10)
-,@COMMENT_author_name nvarchar(10)
-,@COMMENT_author_image nvarchar(10)
+,@COMMENT_author_name nvarchar(50)
+,@COMMENT_author_image nvarchar(2000)
 )
 as
 insert into COMMENT_REPLY
  (answer_REPLY_ID,QUESTION_ID,COMMENT_DETAIL,COMMENT_author,COMMENT_time,COMMENT_author_name,COMMENT_author_image)
  values(@answer_REPLY_ID,@QUESTION_ID,@COMMENT_DETAIL,@COMMENT_author,convert(varchar, getdate(), 20),@COMMENT_author_name,@COMMENT_author_image)
+go
 
+create proc GetAllQuestion
+as
+select q.QUESTION_ID,q.QUESTION_TITLE,q.QUESTION_TAG,q.author_name,q.SLUGS,q.[time],
+sum( case when v.vote  is null then 0
+ else v.vote end) as vote,
+count(  r.answer_REPLY_ID ) as answer
+from QUESTION q left JOIN VOTE v 
+on v.QUESTION_ID=q.QUESTION_ID LEFT join QUESTION_REPLY r on r.answer_QUESTION_ID=q.QUESTION_ID
+group by  q.QUESTION_TITLE,q.QUESTION_TAG,
+q.author_name,q.SLUGS,q.[time]
+,q.QUESTION_ID
+GO
 ---temp------------------------------------
+use master
+go
+drop DATABASE QandA
+
+go
+ALTER proc [dbo].[userSignup] 
+(@username nvarchar(100),@usermail nvarchar(100),@userpassword nvarchar(100),@slug nvarchar(100),@image nvarchar(100))
+as
+insert into Infouser(USER_NAME,USER_EMAIL,USER_PASSWORD,slug,Tfa,USER_IMAGE) OUTPUT Inserted.USER_ID,inserted.[USER_NAME] values(@username,@usermail,@userpassword,@slug,0,@image)
+GO
 
 
+ALTER TABLE Infouser
+ALTER COLUMN USER_IMAGE nvarchar(1000);
+ALTER TABLE QUESTION_REPLY
+ALTER COLUMN answer_author_image nvarchar(2000);

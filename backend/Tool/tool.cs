@@ -6,7 +6,11 @@ using System.Linq;
 using MailKit.Net.Smtp;
 using MimeKit;
 using System.Collections.Generic;
-
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.Drawing.Text;
+using System.IO;
 using Microsoft.AspNetCore.Mvc;
 using PusherServer;
 using System.Security.Claims;
@@ -87,13 +91,13 @@ namespace Tool
        
         
         public async Task<ActionResult> webSocket(QUESTION_REPLY obj,string Event) {
-             var options = new PusherOptions
-            {
-            Cluster = "ap3",
-            Encrypted = true
-            };
-             string chanel ="notification";
-             var pusher = new Pusher(
+            var options = new PusherOptions
+                {
+                Cluster = "ap3",
+                Encrypted = true
+                };  
+            string chanel ="notification";
+            var pusher = new Pusher(
             "1243189",
             "609d6dc690cd8764da77",
             "075b8571e139675b39eb",
@@ -105,5 +109,44 @@ namespace Tool
 
             return null;
         }
+
+        public static string GenerateAvata(userModel user)
+        {   
+            var nameSplit=user.USER_NAME.Split(' ');
+            var _BackgroundColours = new List<string> { "B26126", "080808", "2c24bf", "008d99", "ff0000" };
+            var avatarString ="";
+            if(nameSplit.Length>=2)
+             avatarString = string.Format("{0}{1}", nameSplit[nameSplit.Length-2][0], nameSplit[nameSplit.Length-1][0]).ToUpper();
+            else
+             avatarString = string.Format("{0}", nameSplit[0][0]).ToUpper();           
+            var randomIndex = new Random().Next(0, _BackgroundColours.Count - 1);
+            var bgColour = _BackgroundColours[randomIndex];
+
+            var bmp = new Bitmap(192, 192);
+            var sf = new StringFormat();
+            sf.Alignment = StringAlignment.Center;
+            sf.LineAlignment = StringAlignment.Center;
+
+            var font = new Font("Arial", 48, FontStyle.Bold, GraphicsUnit.Pixel);
+            var graphics = Graphics.FromImage(bmp);
+
+            graphics.Clear((Color)new ColorConverter().ConvertFromString("#" + bgColour));
+            graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            graphics.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+            graphics.DrawString(avatarString, font, new SolidBrush(Color.WhiteSmoke), new RectangleF(0, 0, 192, 192), sf);
+            graphics.Flush();
+
+            var ms = new MemoryStream();
+            string Path="../backend/Resources/Images/AvataUser/"+user.slug+"";
+            // if (Directory.Exists("../backend/Resources/Images/AvataUser/"+user.USER_ID))
+            // {
+            //     DirectoryInfo di = Directory.CreateDirectory(Path);
+            // }
+            DirectoryInfo di = Directory.CreateDirectory(Path);
+            bmp.Save(Path+"/avata.png", ImageFormat.Png);
+
+            return Path;
+      }
+
     }
 }

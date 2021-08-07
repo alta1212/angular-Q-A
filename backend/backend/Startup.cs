@@ -16,6 +16,9 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Net.WebSockets;
 using System.Net;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
+
 namespace backend
 {
     public class Startup
@@ -80,7 +83,20 @@ namespace backend
             }
 
             app.UseHttpsRedirection();
+            // app.UseStaticFiles();// For the wwwroot folder
 
+            app.UseStaticFiles(new StaticFileOptions
+                    {
+                        FileProvider = new PhysicalFileProvider(
+                            Path.Combine(Directory.GetCurrentDirectory(), "Resources")),
+                        RequestPath = "/Resources"
+                     });
+            // app.UseDirectoryBrowser(new DirectoryBrowserOptions
+            //         {
+            //             FileProvider = new PhysicalFileProvider(
+            //                 Path.Combine(Directory.GetCurrentDirectory(), "Resources")),
+            //             RequestPath = "/Resources"
+            //         });
            
             app.UseCors("*");
          

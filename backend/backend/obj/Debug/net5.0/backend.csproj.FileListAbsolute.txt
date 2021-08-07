@@ -124,3 +124,6 @@ C:\Users\welcome\Desktop\angular-Q-A\backend\backend\obj\Debug\net5.0\backend.dl
 C:\Users\welcome\Desktop\angular-Q-A\backend\backend\obj\Debug\net5.0\ref\backend.dll
 C:\Users\welcome\Desktop\angular-Q-A\backend\backend\obj\Debug\net5.0\backend.pdb
 C:\Users\welcome\Desktop\angular-Q-A\backend\backend\obj\Debug\net5.0\backend.genruntimeconfig.cache
+C:\Users\tuan anh\Documents\angular Q&A\backend\backend\bin\Debug\net5.0\System.Drawing.Common.dll
+C:\Users\tuan anh\Documents\angular Q&A\backend\backend\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\tuan anh\Documents\angular Q&A\backend\backend\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll

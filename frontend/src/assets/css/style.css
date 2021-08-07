@@ -6,3 +6,9 @@ pagination-template a
 {
     cursor: pointer;
 }
+
+
+.prepare
+{
+    opacity: 0.4;
+}

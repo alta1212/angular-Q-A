@@ -23,24 +23,22 @@ namespace backend.Controllers
     [Route("[controller]")]
 
     public class userController : ControllerBase
-    {   
-      private IuserBUS iuserBUS;
+    {
+        private IuserBUS iuserBUS;
 
-      private IConfiguration config;
-      public userController (IuserBUS k,IConfiguration _config)
-      {
-        config=_config;
-        iuserBUS=k;
-      }
+        private IConfiguration config;
+        public userController(IuserBUS k, IConfiguration _config)
+        {
+            config = _config;
+            iuserBUS = k;
+        }
 
-        
-     
         [HttpGet]
         [Route("testmail")]
         public string s()
         {
-           tool.SendMessageSmtp();
-           return "ok";
+            tool.SendMessageSmtp();
+            return "ok";
         }
         // [HttpGet]
         // [Authorize(Roles = "login")]
@@ -50,11 +48,11 @@ namespace backend.Controllers
         //   return "sâ";
         // }
 
-      Tool.tool tool= new Tool.tool();
-      SlugHelper helper = new SlugHelper();
-      #region 2fa
-     
-      
+        Tool.tool tool = new Tool.tool();
+        SlugHelper helper = new SlugHelper();
+        #region 2fa
+
+
         //sau này sẽ cho vào seesion
         private const string key = "Alta122@";
 
@@ -65,141 +63,144 @@ namespace backend.Controllers
         public object create2FaQrCode(userModel user)
         {
             TwoFactorAuthenticator tfa = new TwoFactorAuthenticator();
-            string UserUniqueKey =user.USER_ID+key; 
+            string UserUniqueKey = user.USER_ID + key;
             //   var hash =System.Text.Encoding.UTF8.GetBytes(UserUniqueKey);
-            
+
             //  return System.Text.Encoding.UTF8.GetString(hash);
-           // k=UserUniqueKey;//cho vào session để  so sánh
-            var setupInfo = tfa.GenerateSetupCode("Disilab", user.USER_EMAIL, UserUniqueKey,false,10);
+            // k=UserUniqueKey;//cho vào session để  so sánh
+            var setupInfo = tfa.GenerateSetupCode("Disilab", user.USER_EMAIL, UserUniqueKey, false, 10);
             return setupInfo.QrCodeSetupImageUrl;
-          
+
         }
         [Route("check2fa")]
         [HttpPost]
         public userModel verify2Fa(twofaVerifyCode code)
         {
-              if(code.token!=null)
-              {
-                    var idUser=tool.decryption(code.token);
-                    code.UserUniqueKey=idUser;
-              }
-              else
-              {
-                    
-              }
-                
-                if (check2fa(code))
-                {
+            if (code.token != null)
+            {
+                var idUser = tool.decryption(code.token);
+                code.UserUniqueKey = idUser;
+            }
+            else
+            {
 
-                  User_.token=tool.token(config,User_);
-                  User_.USER_PASSWORD=null;
-                  return User_;
-                }
-                return null;
+            }
+
+            if (check2fa(code))
+            {
+
+                User_.token = tool.token(config, User_);
+                User_.USER_PASSWORD = null;
+                return User_;
+            }
+            return null;
         }
-       
+
         [Route("enable2fa")]
         [HttpPost]
         public bool enable2fa(twofaVerifyCode code)
         {
-                var idUser=tool.decryption(code.token);
-                code.UserUniqueKey=idUser;
-                if (check2fa(code))
-                {
-                  return iuserBUS.enable2fa(tool.decryption(code.token));
-                }
-                return false;
+            var idUser = tool.decryption(code.token);
+            code.UserUniqueKey = idUser;
+            if (check2fa(code))
+            {
+                return iuserBUS.enable2fa(tool.decryption(code.token));
+            }
+            return false;
         }
         [Route("disable2fa")]
         [HttpPost]
         public bool disable2fa(twofaVerifyCode code)
-        {       var idUser=tool.decryption(code.token);
-                code.UserUniqueKey=idUser;
-                if (check2fa(code))
-                {
-                  return iuserBUS.disable2fa(idUser);
-                }
-                return false;
+        {
+            var idUser = tool.decryption(code.token);
+            code.UserUniqueKey = idUser;
+            if (check2fa(code))
+            {
+                return iuserBUS.disable2fa(idUser);
+            }
+            return false;
         }
         public bool check2fa(twofaVerifyCode code)
         {
-          TwoFactorAuthenticator tfa = new TwoFactorAuthenticator();
-              
-          return tfa.ValidateTwoFactorPIN(code.UserUniqueKey+key, code.code);
-    
+            TwoFactorAuthenticator tfa = new TwoFactorAuthenticator();
+
+            return tfa.ValidateTwoFactorPIN(code.UserUniqueKey + key, code.code);
+
         }
-      #endregion 2fa
-      #region auth
-      [HttpPost]
-      [Route("login")]
-      public object login(userModel user)
-      {
-        user =iuserBUS.login(user);
-        if(user!=null)
+        #endregion 2fa
+        #region auth
+        [HttpPost]
+        [Route("login")]
+        public object login(userModel user)
         {
-          if(iuserBUS.login(user).Tfa=="0")//kiếm tra nếu người dùng bật 2fa
-          {
-               user.USER_PASSWORD=null;
-               user.token=tool.token(config,user);
-               return user; 
-          }
-          User_=user;
-          return user;//không tạo token truy cập đến khi xác thực đƯợc 2fa
+            user = iuserBUS.login(user);
+            if (user != null)
+            {
+                if (iuserBUS.login(user).Tfa == "0")//kiếm tra nếu người dùng bật 2fa
+                {
+                    user.USER_PASSWORD = null;
+                    user.token = tool.token(config, user);
+                    return user;
+                }
+                User_ = user;
+                return user;//không tạo token truy cập đến khi xác thực đƯợc 2fa
+            }
+            return null;
+
+
+
         }
-        return null;
-        
-   
+        [HttpPost]
+        [Route("signup")]
+        public string signup(userModel user)
+        {
+            double ms = Math.Round((DateTime.Now - DateTime.MinValue).TotalMilliseconds);
+            user.slug = helper.GenerateSlug(user.USER_NAME) + "-" + ms;
+            user.USER_IMAGE="Resources/Images/AvataUser/"+user.slug+"/avata.png";
+            tool.GenerateAvata(user);
+            iuserBUS.signUp(user);
+            return user.USER_IMAGE;
 
-      }
-      [HttpPost]
-      [Route("signup")]
-      public userModel signup(userModel user)
-      {
-        user.slug=helper.GenerateSlug(user.USER_NAME);
-        iuserBUS.signUp(user);
-        //viêt code lưu database
-        return user;
+        }
+        #endregion auth
+        #region question
 
-      }
-      #endregion auth
-      #region question
+        //question
 
-     //question
-
-      [HttpPost]
-      [Route("ask/{token}")]
-      public object ask (questionModal ques,string token)
-      {
-          double ms = Math.Round((DateTime.Now - DateTime.MinValue).TotalMilliseconds);
-          ques.author=int.Parse(tool.decryption(token));
-          ques.SLUGS= helper.GenerateSlug(ques.QUESTION_TITLE)+"-"+ms;
-          return iuserBUS.ask(ques);
-      }
+        [HttpPost]
+        [Route("ask/{token}")]
+        public object ask(questionModal ques, string token)
+        {
+            double ms = Math.Round((DateTime.Now - DateTime.MinValue).TotalMilliseconds);
+            ques.author = int.Parse(tool.decryption(token));
+            ques.SLUGS = helper.GenerateSlug(ques.QUESTION_TITLE) + "-" + ms;
+            return iuserBUS.ask(ques);
+        }
 
 
 
-      
-      #endregion question
 
-      #region answer
-      [HttpPost]
-      [Route("answer")]
-      public QUESTION_REPLY REPLY(QUESTION_REPLY qUESTION_REPLY)
-      {
-         System.Threading.Tasks.Task<ActionResult> task = tool.webSocket( qUESTION_REPLY,tool.decryption(qUESTION_REPLY.token));
-        return iuserBUS.REPLY(qUESTION_REPLY);
-      }
-      #endregion answer
-     
+        #endregion question
 
-      #region comment
-      [HttpPost]
-      [Route("comment")]
-      public Comment comment(Comment Comment)
-      {
-        return iuserBUS.comment(Comment);
-      }
-      #endregion comment
+        #region answer
+        [HttpPost]
+        [Route("answer")]
+        public QUESTION_REPLY REPLY(QUESTION_REPLY qUESTION_REPLY)
+        {
+            System.Threading.Tasks.Task<ActionResult> task = tool.webSocket(qUESTION_REPLY, tool.decryption(qUESTION_REPLY.token));
+            return iuserBUS.REPLY(qUESTION_REPLY);
+        }
+        #endregion answer
+
+
+        #region comment
+        [HttpPost]
+        [Route("comment")]
+        public Comment comment(Comment Comment)
+        {
+            return iuserBUS.comment(Comment);
+        }
+        #endregion comment
     }
-    
+
 }
