@@ -8,7 +8,7 @@
 /bazel-out
 
 #uploadImage
-/Resources
+/Resources/*
 # dependencies
 /node_modules
 

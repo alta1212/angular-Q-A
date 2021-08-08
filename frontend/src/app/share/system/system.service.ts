@@ -23,9 +23,16 @@ export class SystemService {
   }
   getAllQuestionDetail(id)
   {
-    var body ={
-      "token":JSON.parse(this.cookieService.get('user')).token
+    var body={
+     
+    };
+    if(this.cookieService.get('user'))
+    {
+      body ={
+        "token":JSON.parse(this.cookieService.get('user')).token
+      }
     }
+   
     return this.http.post(this.BaseURI+"system/questionDetail/"+id,body,{responseType: 'json'});
   }
 

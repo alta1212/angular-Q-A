@@ -55,8 +55,14 @@ export class QuestionsDetailComponent implements OnInit {
     
     this.system.getAllQuestionDetail(this.slug).subscribe(
       (res:any) => {
-       
-          console.log(res)
+        console.log(res)
+        if(res===null)
+        {
+           
+            window.location.href="404"
+        }
+        else
+        {
           this.reply=res.item2;
           this.comment=res.item3;
           this.author=res.item1.author;
@@ -84,6 +90,8 @@ export class QuestionsDetailComponent implements OnInit {
           this.questionTitle=res.item1.questioN_TITLE;
           this.time=res.item1.time;
           this.titleService.setTitle(this.questionTitle);
+        }
+
       },
       err=>{
         cuteToast({

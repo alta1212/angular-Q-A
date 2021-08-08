@@ -33,7 +33,13 @@ namespace backend.Controllers
       [Route("questionDetail/{slug}")]
       public object Deatail(string slug,QUESTION_Accset a)
       {  
-          int userid=int.Parse(tool.decryption(a.token));
+         
+          int userid=int.MaxValue;
+          if(a.token!=null)
+          {
+            userid=int.Parse(tool.decryption(a.token));
+          }
+          
           return isystemBUS.getDetailQuestion(slug,userid);
       }
 

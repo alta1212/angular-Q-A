@@ -151,6 +151,11 @@ author,
 author_image,author_name,
 time
 ) values (@title,@tag,@category,@detail,@slug,@type,@getNOtication,@author,@author_image,@author_name, convert(varchar, getdate(), 20))
+if @type ='true'
+BEGIN
+    INSERT into accsetPrivateQuestion VALUES(SCOPE_IDENTITY(),@author )    
+end
+
 go
 
 
@@ -193,7 +198,7 @@ GO
 
 
 
-create  proc answer(@answer_QUESTION_ID nvarchar(10),
+create proc answer(@answer_QUESTION_ID nvarchar(10),
 @detail nvarchar (MAX),@author_name nvarchar(50),
 @author_image NVARCHAR(2000) null,
 @author NVARCHAR(4)
@@ -213,7 +218,7 @@ answer_time) VALUES(
     @author_image,
    convert(varchar, getdate(), 20)
     )
-
+  
 
 go
 
@@ -244,6 +249,7 @@ sum( case when v.vote  is null then 0
 count(  r.answer_REPLY_ID ) as answer
 from QUESTION q left JOIN VOTE v 
 on v.QUESTION_ID=q.QUESTION_ID LEFT join QUESTION_REPLY r on r.answer_QUESTION_ID=q.QUESTION_ID
+Where q.type != 'true'
 group by  q.QUESTION_TITLE,q.QUESTION_TAG,
 q.author_name,q.SLUGS,q.[time]
 ,q.QUESTION_ID
@@ -252,14 +258,16 @@ create  proc checkAccset(@qID int,@uID int)
 as
 select COUNT(userId) as count from accsetPrivateQuestion where userId =@uID and questionId=@qID
 ---temp------------------------------------
-create table accsetPrivateQuestion(
-    questionId int,
-    userId int
-)
 go
-create proc checkAccset(@qID int,@uID int)
+ALTER proc GetAllQuestion
 as
-select COUNT(userId) as count from accsetPrivateQuestion where userId =@uID and questionId=@qID
-
-
-exec  checkAccset 4,1
+select q.QUESTION_ID,q.QUESTION_TITLE,q.QUESTION_TAG,q.author_name,q.SLUGS,q.[time],
+sum( case when v.vote  is null then 0
+ else v.vote end) as vote,
+count(  r.answer_REPLY_ID ) as answer
+from QUESTION q  left JOIN VOTE v 
+on v.QUESTION_ID=q.QUESTION_ID  LEFT join QUESTION_REPLY r on r.answer_QUESTION_ID=q.QUESTION_ID
+Where q.type != 'true'
+group by  q.QUESTION_TITLE,q.QUESTION_TAG,
+q.author_name,q.SLUGS,q.[time]
+,q.QUESTION_ID 

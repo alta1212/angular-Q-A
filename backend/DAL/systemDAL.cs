@@ -31,8 +31,9 @@ namespace DAL
                       if(dt.Rows.Count>0)
                         { 
                             var question=dt.ConvertTo<questionModal>().FirstOrDefault();
-                            if(question.type=="true")
+                            if(question.type=="true"  )
                             {
+                                
                                 if(CheckAccset(id,question.QUESTION_ID))
                                 {
                                     
@@ -48,6 +49,22 @@ namespace DAL
                                         return Tuple.Create(question,reply,CommentList);
                                     
                                 }
+                                return null;
+                            }
+                            else
+                            {
+
+                            
+                                 var rep = databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "getReply",
+                                        "@id", question.QUESTION_ID
+                                        );
+                                    
+                                            var reply=rep.ConvertTo<QUESTION_REPLY>().ToList();
+                                    var Comment = databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "getComment",
+                                        "@id", question.QUESTION_ID
+                                        );
+                                    var CommentList=Comment.ConvertTo<Comment>().ToList();
+                                        return Tuple.Create(question,reply,CommentList);
                             }
                                 
                             
