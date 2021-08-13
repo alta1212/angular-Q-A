@@ -17,6 +17,12 @@ namespace BUS
         {
             return systemDAl.getDetailQuestion(slug,id);
         }
+
+        public object getNotication(string id)
+        {
+            return systemDAl.getNotication(id);
+        }
+
         public object getQuestion()
         {
             return systemDAl.getQuestion();

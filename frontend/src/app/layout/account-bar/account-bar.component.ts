@@ -3,6 +3,7 @@ import { UserService } from 'src/app/share/user/user.service';
 import { CookieService } from 'ngx-cookie-service';
 import { PusherService } from 'src/app/share/pusher/pusher.service';
 import {SystemService} from '../../share/system/system.service'
+import { AngularDayjsService } from 'angular-dayjs';
 declare var cuteToast: any;
 
 @Component({
@@ -13,7 +14,8 @@ declare var cuteToast: any;
 export class AccountBarComponent implements OnInit {
   user_name :any;
   user_image;
-  constructor(public sys:SystemService,private cookieService:CookieService,public service: UserService,private pusherService: PusherService) { }
+  listcomment:any;
+  constructor(public sys:SystemService,private cookieService:CookieService,public service: UserService,private pusherService: PusherService,public angularDayjsService: AngularDayjsService) { }
   log:boolean;
   
   ngOnInit(): void {
@@ -32,6 +34,16 @@ export class AccountBarComponent implements OnInit {
           timer: 5000
         });
       });
+    
+      this.service.getNOTICATION().subscribe(
+        (res) => {
+        console.log(res)
+          this.listcomment=res;
+        },
+        err => {
+          console.log(err);
+        }
+      );
     }
   }
   logout()

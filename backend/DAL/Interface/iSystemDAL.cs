@@ -11,6 +11,7 @@ namespace DAL.Interface
 
         Tuple<questionModal,List <QUESTION_REPLY>,List <Comment>> getDetailQuestion(string slug,int id);
         object getQuestion();
+        object getNotication(string id);
         #endregion question
     }
 }

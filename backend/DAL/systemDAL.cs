@@ -104,5 +104,22 @@ namespace DAL
             }
             return false;
         }
+
+        public object getNotication(string id)
+        {
+            string msgError = "";
+          
+                var dt = databaseHelper.ExecuteSProcedureReturnDataTable(out msgError, "getNOtication",
+                "@id",id);
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                      if(dt.Rows.Count>0)
+                        { 
+                            
+                            return dt.ConvertTo<notication_model>().ToList();
+
+                        }
+                     return null;
+        }
     }
 }

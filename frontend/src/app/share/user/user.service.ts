@@ -232,4 +232,17 @@ export class UserService {
   
   }
   //end comment
+  //notication
+  getNOTICATION()
+  {
+    var body=
+    {   
+      "token":JSON.parse(this.cookieService.get('user')).token
+    }
+
+    return this.http.post(this.sys.BaseURI+"system/getnoti",
+    body,
+    { responseType: 'json' });
+  }
+  //endnotication
 }

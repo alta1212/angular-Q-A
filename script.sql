@@ -95,6 +95,7 @@ CREATE TABLE NOTICATION(
     NOTICATION_TIME NVARCHAR(40),
     NOTICATION_DETAIL NVARCHAR(100),
     USER_ID INT,--USER
+    avata NVARCHAR(2000)
 )
 GO
 CREATE TABLE CATEGORY(
@@ -257,17 +258,25 @@ GO
 create  proc checkAccset(@qID int,@uID int)
 as
 select COUNT(userId) as count from accsetPrivateQuestion where userId =@uID and questionId=@qID
+GO
+CREATE proc [dbo].[PutNotication]
+(@detail nvarchar(1000),@user int,@avata nvarchar(2000))
+AS
+insert into NOTICATION (NOTICATION_STATUS,NOTICATION_TIME,NOTICATION_DETAIL,user_id,avata) VALUES
+(0,convert(varchar, getdate(), 20),@detail,@user,@avata)
+GO
+create proc getNOtication(@id int)
+AS
+select * from NOTICATION WHERE user_id=@id
 ---temp------------------------------------
+
+CREATE proc [dbo].[PutNotication]
+(@detail nvarchar(1000),@user int,@avata nvarchar(2000))
+AS
+insert into NOTICATION (NOTICATION_STATUS,NOTICATION_TIME,NOTICATION_DETAIL,user_id,avata) VALUES
+(0,convert(varchar, getdate(), 20),@detail,@user,@avata)
+GO
 go
-ALTER proc GetAllQuestion
-as
-select q.QUESTION_ID,q.QUESTION_TITLE,q.QUESTION_TAG,q.author_name,q.SLUGS,q.[time],
-sum( case when v.vote  is null then 0
- else v.vote end) as vote,
-count(  r.answer_REPLY_ID ) as answer
-from QUESTION q  left JOIN VOTE v 
-on v.QUESTION_ID=q.QUESTION_ID  LEFT join QUESTION_REPLY r on r.answer_QUESTION_ID=q.QUESTION_ID
-Where q.type != 'true'
-group by  q.QUESTION_TITLE,q.QUESTION_TAG,
-q.author_name,q.SLUGS,q.[time]
-,q.QUESTION_ID 
+create proc getNOtication(@id int)
+AS
+select * from NOTICATION WHERE user_id=@id

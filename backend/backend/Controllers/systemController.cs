@@ -49,5 +49,13 @@ namespace backend.Controllers
       {
           return isystemBUS.getQuestion();
       }
+
+      [HttpPost]
+      [Route("getnoti")]
+      public object getnoti(notication_model noti)
+      {
+       
+          return isystemBUS.getNotication(tool.decryption(noti.token));
+      }
     }
 }
