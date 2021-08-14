@@ -267,7 +267,7 @@ insert into NOTICATION (NOTICATION_STATUS,NOTICATION_TIME,NOTICATION_DETAIL,user
 GO
 create proc getNOtication(@id int)
 AS
-select * from NOTICATION WHERE user_id=@id
+select * from NOTICATION WHERE user_id=@id ORDER BY  NOTICATION_TIME DESC
 ---temp------------------------------------
 
 CREATE proc [dbo].[PutNotication]
@@ -277,6 +277,6 @@ insert into NOTICATION (NOTICATION_STATUS,NOTICATION_TIME,NOTICATION_DETAIL,user
 (0,convert(varchar, getdate(), 20),@detail,@user,@avata)
 GO
 go
-create proc getNOtication(@id int)
+create  proc getNOtication(@id int)
 AS
-select * from NOTICATION WHERE user_id=@id
+select * from NOTICATION WHERE user_id=1 ORDER BY  NOTICATION_TIME DESC

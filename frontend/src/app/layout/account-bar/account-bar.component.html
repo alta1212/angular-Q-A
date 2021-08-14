@@ -17,15 +17,15 @@
                 <h6 class="dropdown-header"><i class="la la-bell pr-1 fs-16"></i>Notifications</h6>
                 <div class="dropdown-divider border-top-gray mb-0"></div>
                 <div class="dropdown-item-list">
-                    <a *ngFor="let noti of listcomment | slice:0:3; " class="dropdown-item" href="notifications">
+                    <a *ngFor="let noti of listnoti | slice:0:3; " class="dropdown-item" href="notifications">
                         <div class="media media-card media--card shadow-none mb-0 rounded-0 align-items-center bg-transparent">
                             <div class="media-img media-img-sm flex-shrink-0">
                                 <img src="../../../assets/images/img3.jpg" alt="avatar">
                             </div>
                             <div class="media-body p-0 border-left-0">
-                                <h5 class="fs-14 fw-regular"></h5>
+                                <h5 style="color: #0d233e;" class="fs-14 fw-regular">{{noti.noticatioN_DETAIL}}</h5>
                                 <small class="meta d-block lh-24">
-                                    <span>45 secs ago</span>
+                                    <span>{{angularDayjsService.timeAgo(noti.time)}}</span>
                                 </small>
                             </div>
                         </div>

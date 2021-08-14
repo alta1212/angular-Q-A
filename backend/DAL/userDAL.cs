@@ -143,6 +143,10 @@ namespace DAL
                      "@author_image", qUESTION_REPLY.answer_author_image,
                      "@author", qUESTION_REPLY.answer_author
                      );
+                     databaseHelper.ExecuteSProcedure("PutNotication",
+                     "@detail",qUESTION_REPLY.answer_author_name +" has reply to you question :",
+                     "@user",qUESTION_REPLY.author_QUESTION_ID,
+                     "@avata",qUESTION_REPLY.answer_author_image);
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
                 return dt.ConvertTo<QUESTION_REPLY>().FirstOrDefault();

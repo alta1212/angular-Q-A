@@ -14,7 +14,8 @@ declare var cuteToast: any;
 export class AccountBarComponent implements OnInit {
   user_name :any;
   user_image;
-  listcomment:any;
+  listnoti=[];
+
   constructor(public sys:SystemService,private cookieService:CookieService,public service: UserService,private pusherService: PusherService,public angularDayjsService: AngularDayjsService) { }
   log:boolean;
   
@@ -36,9 +37,9 @@ export class AccountBarComponent implements OnInit {
       });
     
       this.service.getNOTICATION().subscribe(
-        (res) => {
+        (res:any) => {
         console.log(res)
-          this.listcomment=res;
+          this.listnoti=res;
         },
         err => {
           console.log(err);
@@ -50,6 +51,7 @@ export class AccountBarComponent implements OnInit {
   {
     this.service.logout();
   }
+ 
 
  
 }
